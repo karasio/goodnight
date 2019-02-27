@@ -35,4 +35,6 @@
     <string name="text_napping">NO napping</string>
     <string name="text_exercising">YES exercising</string>
     <string name="time_wakeUpNightDef">00:30</string>
+    <string name="cb_bedTimeNotif">Bedtime notification?</string>
+    <string name="cb_logSleepNotif">Log sleep notification?</string>
 </resources>

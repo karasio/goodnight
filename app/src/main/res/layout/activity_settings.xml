@@ -13,9 +13,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="@string/header_settings"
         android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline16"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,33 +27,33 @@
         android:layout_width="130dp"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="@string/text_defSleep"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/text_wakeDef"
-        app:layout_constraintEnd_toStartOf="@+id/edit_sleepTime"
+        app:layout_constraintBottom_toTopOf="@+id/guideline11"
+        app:layout_constraintEnd_toStartOf="@+id/edit_sleepTimeDef"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header_settings" />
+        app:layout_constraintTop_toTopOf="@+id/guideline16" />
 
     <EditText
-        android:id="@+id/edit_sleepTime"
+        android:id="@+id/edit_sleepTimeDef"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/time_sleepDef"
         android:inputType="time"
-        app:layout_constraintBottom_toTopOf="@+id/edit_timeWakeDef"
+        app:layout_constraintBottom_toTopOf="@+id/guideline11"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/text_defaultSleep"
-        app:layout_constraintTop_toBottomOf="@+id/header_settings" />
+        app:layout_constraintTop_toTopOf="@+id/guideline16" />
 
     <TextView
         android:id="@+id/text_wakeDef"
@@ -64,10 +66,10 @@
         android:fontFamily="sans-serif-condensed-light"
         android:text="@string/text_defWake"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/text_bedtimeToggle"
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
         app:layout_constraintEnd_toStartOf="@+id/edit_timeWakeDef"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_defaultSleep" />
+        app:layout_constraintTop_toTopOf="@+id/guideline11" />
 
     <EditText
         android:id="@+id/edit_timeWakeDef"
@@ -76,44 +78,29 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="@string/time_wakeDef"
         android:inputType="time"
-        app:layout_constraintBottom_toTopOf="@+id/tbutton_bedtimeToggle"
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/text_wakeDef"
-        app:layout_constraintTop_toBottomOf="@+id/edit_sleepTime" />
+        app:layout_constraintTop_toTopOf="@+id/guideline11" />
 
-    <TextView
-        android:id="@+id/text_bedtimeToggle"
-        android:layout_width="130dp"
-        android:layout_height="40dp"
+    <CheckBox
+        android:id="@+id/checkBox_bedtimeNotif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:fontFamily="sans-serif-condensed-light"
-        android:text="@string/text_remSleep"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/text_bedtimeNotifTime"
-        app:layout_constraintEnd_toStartOf="@+id/tbutton_bedtimeToggle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_wakeDef" />
-
-    <ToggleButton
-        android:id="@+id/tbutton_bedtimeToggle"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/button_toggle"
-        app:layout_constraintBottom_toTopOf="@+id/edit_bedtimeNotifTime"
+        android:text="@string/cb_bedTimeNotif"
+        app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text_bedtimeToggle"
-        app:layout_constraintTop_toBottomOf="@+id/edit_timeWakeDef" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline12" />
 
     <TextView
         android:id="@+id/text_bedtimeNotifTime"
@@ -126,10 +113,10 @@
         android:fontFamily="sans-serif-condensed-light"
         android:text="@string/text_whenNotifSleep"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/text_LogNotifToggle"
+        app:layout_constraintBottom_toTopOf="@+id/guideline14"
         app:layout_constraintEnd_toStartOf="@+id/edit_bedtimeNotifTime"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_bedtimeToggle" />
+        app:layout_constraintTop_toTopOf="@+id/guideline13" />
 
     <EditText
         android:id="@+id/edit_bedtimeNotifTime"
@@ -142,57 +129,38 @@
         android:ems="10"
         android:hint="@string/time_sleepRemDef"
         android:inputType="time"
-        app:layout_constraintBottom_toTopOf="@+id/tbutton_LogToggle"
+        app:layout_constraintBottom_toTopOf="@+id/guideline14"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/text_bedtimeNotifTime"
-        app:layout_constraintTop_toBottomOf="@+id/tbutton_bedtimeToggle" />
+        app:layout_constraintTop_toTopOf="@+id/guideline13" />
 
-    <TextView
-        android:id="@+id/text_LogNotifToggle"
+    <CheckBox
+        android:id="@+id/checkBox_logSleepNotif"
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:fontFamily="sans-serif-condensed-light"
-        android:text="@string/text_remLog"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/text_LogNotifTime"
-        app:layout_constraintEnd_toStartOf="@+id/tbutton_LogToggle"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_bedtimeNotifTime" />
-
-    <ToggleButton
-        android:id="@+id/tbutton_LogToggle"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/toggle_button2"
-        app:layout_constraintBottom_toTopOf="@+id/edit_timeNotifTime"
+        android:text="@string/cb_logSleepNotif"
+        app:layout_constraintBottom_toTopOf="@+id/guideline15"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text_LogNotifToggle"
-        app:layout_constraintTop_toBottomOf="@+id/edit_bedtimeNotifTime" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline14" />
 
     <TextView
         android:id="@+id/text_LogNotifTime"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="120dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="@string/text_notifLogSleep"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/button_saveSettings"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edit_timeNotifTime"
         app:layout_constraintEnd_toStartOf="@+id/edit_timeNotifTime"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_LogNotifToggle" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/edit_timeNotifTime"
@@ -201,26 +169,79 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="@string/time_logRemDef"
         android:inputType="time"
-        app:layout_constraintBottom_toTopOf="@+id/button_saveSettings"
+        app:layout_constraintBottom_toTopOf="@+id/guideline17"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/text_LogNotifTime"
-        app:layout_constraintTop_toBottomOf="@+id/tbutton_LogToggle" />
+        app:layout_constraintTop_toTopOf="@+id/guideline15" />
 
     <Button
         android:id="@+id/button_saveSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="32dp"
         android:backgroundTint="@android:color/holo_red_light"
         android:fontFamily="sans-serif-condensed-light"
+        android:onClick="buttonPressed"
         android:text="@string/button_send"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline17" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.21203831" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
 </android.support.constraint.ConstraintLayout>

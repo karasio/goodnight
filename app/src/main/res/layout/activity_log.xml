@@ -138,7 +138,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline40" />
 
     <CheckBox
-        android:id="@+id/cbox_special"
+        android:id="@+id/checkBox_special"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -147,13 +147,13 @@
         android:layout_marginBottom="8dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="@string/cb_special"
-        app:layout_constraintBottom_toTopOf="@+id/cbox_naps"
+        app:layout_constraintBottom_toTopOf="@+id/checkBox_naps"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline60" />
 
     <CheckBox
-        android:id="@+id/cbox_naps"
+        android:id="@+id/checkBox_naps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -162,13 +162,13 @@
         android:layout_marginBottom="8dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="@string/cbox_nap"
-        app:layout_constraintBottom_toTopOf="@+id/cb_exercise"
+        app:layout_constraintBottom_toTopOf="@+id/checkBox_exercise"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cbox_special" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_special" />
 
     <CheckBox
-        android:id="@+id/cb_exercise"
+        android:id="@+id/checkBox_exercise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -180,7 +180,7 @@
         app:layout_constraintBottom_toTopOf="@+id/button_saveLog"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cbox_naps" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_naps" />
 
     <Button
         android:id="@+id/button_saveLog"
@@ -196,7 +196,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cb_exercise" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_exercise" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline20"
