@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity">
+
+    <TextView
+        android:id="@+id/header_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="@string/header_settings"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_defaultSleep"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="@string/text_defSleep"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_wakeDef"
+        app:layout_constraintEnd_toStartOf="@+id/edit_sleepTime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header_settings" />
+
+    <EditText
+        android:id="@+id/edit_sleepTime"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/time_sleepDef"
+        android:inputType="time"
+        app:layout_constraintBottom_toTopOf="@+id/edit_timeWakeDef"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_defaultSleep"
+        app:layout_constraintTop_toBottomOf="@+id/header_settings" />
+
+    <TextView
+        android:id="@+id/text_wakeDef"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="@string/text_defWake"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_bedtimeToggle"
+        app:layout_constraintEnd_toStartOf="@+id/edit_timeWakeDef"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_defaultSleep" />
+
+    <EditText
+        android:id="@+id/edit_timeWakeDef"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="36dp"
+        android:ems="10"
+        android:hint="@string/time_wakeDef"
+        android:inputType="time"
+        app:layout_constraintBottom_toTopOf="@+id/tbutton_bedtimeToggle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_wakeDef"
+        app:layout_constraintTop_toBottomOf="@+id/edit_sleepTime" />
+
+    <TextView
+        android:id="@+id/text_bedtimeToggle"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="@string/text_remSleep"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_bedtimeNotifTime"
+        app:layout_constraintEnd_toStartOf="@+id/tbutton_bedtimeToggle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_wakeDef" />
+
+    <ToggleButton
+        android:id="@+id/tbutton_bedtimeToggle"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/button_toggle"
+        app:layout_constraintBottom_toTopOf="@+id/edit_bedtimeNotifTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_bedtimeToggle"
+        app:layout_constraintTop_toBottomOf="@+id/edit_timeWakeDef" />
+
+    <TextView
+        android:id="@+id/text_bedtimeNotifTime"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="@string/text_whenNotifSleep"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_LogNotifToggle"
+        app:layout_constraintEnd_toStartOf="@+id/edit_bedtimeNotifTime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_bedtimeToggle" />
+
+    <EditText
+        android:id="@+id/edit_bedtimeNotifTime"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:hint="@string/time_sleepRemDef"
+        android:inputType="time"
+        app:layout_constraintBottom_toTopOf="@+id/tbutton_LogToggle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_bedtimeNotifTime"
+        app:layout_constraintTop_toBottomOf="@+id/tbutton_bedtimeToggle" />
+
+    <TextView
+        android:id="@+id/text_LogNotifToggle"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="@string/text_remLog"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_LogNotifTime"
+        app:layout_constraintEnd_toStartOf="@+id/tbutton_LogToggle"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_bedtimeNotifTime" />
+
+    <ToggleButton
+        android:id="@+id/tbutton_LogToggle"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/toggle_button2"
+        app:layout_constraintBottom_toTopOf="@+id/edit_timeNotifTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_LogNotifToggle"
+        app:layout_constraintTop_toBottomOf="@+id/edit_bedtimeNotifTime" />
+
+    <TextView
+        android:id="@+id/text_LogNotifTime"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="120dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="@string/text_notifLogSleep"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_saveSettings"
+        app:layout_constraintEnd_toStartOf="@+id/edit_timeNotifTime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_LogNotifToggle" />
+
+    <EditText
+        android:id="@+id/edit_timeNotifTime"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="120dp"
+        android:ems="10"
+        android:hint="@string/time_logRemDef"
+        android:inputType="time"
+        app:layout_constraintBottom_toTopOf="@+id/button_saveSettings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_LogNotifTime"
+        app:layout_constraintTop_toBottomOf="@+id/tbutton_LogToggle" />
+
+    <Button
+        android:id="@+id/button_saveSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@android:color/holo_red_light"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="@string/button_send"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</android.support.constraint.ConstraintLayout>
