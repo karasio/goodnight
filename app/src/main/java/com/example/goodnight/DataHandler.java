@@ -1,11 +1,13 @@
 package com.example.goodnight;
 
+import android.util.Log;
+
 public class DataHandler {
     // variables for logging sleep
-    private double time_ToSleep;
-    private double time_wakeUp;
-    private double time_awake;
-    private double time_slept;
+    private String time_ToSleep;
+    private String time_wakeUp;
+    private String time_awake;
+    private String time_slept;
     private int mood;
     private boolean cb_special;
     private boolean cb_napping;
@@ -14,12 +16,12 @@ public class DataHandler {
     // variables for feedback
 
     // variables for settings
-    private double timeDef_toSleep;
-    private double timeDef_wakeUp;
+    private String timeDef_toSleep;
+    private String timeDef_wakeUp;
     private boolean toggle_bedTimeNotif = false;
-    private double time_bedTimeNotification;
+    private String time_bedTimeNotification;
     private boolean toggle_logSleepNotif = false;
-    private double time_logSleepNotification;
+    private String time_logSleepNotification;
 
     // other variables necessary in class
     private static final DataHandler ourInstance = new DataHandler();
@@ -32,7 +34,7 @@ public class DataHandler {
     }
 
     public void setSleepLogging(String time_ToSleep, String time_wakeUp, String time_awake,
-                                String mood, String cb_special, String cb_napping, String cb_exercise) {
+                                int mood, boolean cb_special, boolean cb_napping, boolean cb_exercise) {
         this.time_ToSleep = time_ToSleep;
         this.time_wakeUp = time_wakeUp;
         this.time_awake = time_awake;
@@ -42,9 +44,9 @@ public class DataHandler {
         this.cb_exercise = cb_exercise;
     }
 
-    public void setSettings(double timeDef_toSleep, double timeDef_wakeUp,
-                            boolean userBedTimeNotification, double time_bedTimeNotification,
-                            boolean userLogSleepNotification, double time_logSleepNotification) {
+    public void setSettings(String timeDef_toSleep, String timeDef_wakeUp,
+                            boolean userBedTimeNotification, String time_bedTimeNotification,
+                            boolean userLogSleepNotification, String time_logSleepNotification) {
         this.timeDef_toSleep = timeDef_toSleep;
         this.timeDef_wakeUp = timeDef_wakeUp;
 
@@ -56,12 +58,14 @@ public class DataHandler {
             this.toggle_logSleepNotif = true;
             this.time_logSleepNotification = time_logSleepNotification;
         }
+
     }
 
 }
 
 
-/*
+/*      AIKAEROTUKSEN LASKEMINEN
+
 		SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
 		Date date1 = format.parse(time1);
 		Date date2 = format.parse(time2);

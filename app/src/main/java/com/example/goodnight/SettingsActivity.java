@@ -8,8 +8,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 public class SettingsActivity extends AppCompatActivity {
-
-
+    boolean bedtimeNotif;
+    boolean logSleepNotif;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,10 +19,18 @@ public class SettingsActivity extends AppCompatActivity {
 
     public void buttonPressed(View view) {
         if (view.getId() == R.id.button_saveSettings) {
-            EditText editText = (EditText) findViewById(R.id.edit_sleepTimeDef);
-            String message = editText.getText().toString();
-            Log.d("UNIAPPI", "AIKA ON MUOTOA " + message);
-            //DataHandler.getInstance().setSettings();
+            EditText edit_sleepTimeDef = (EditText) findViewById(R.id.edit_sleepTimeDef);
+            String string_sleepTimeDef = edit_sleepTimeDef.getText().toString();
+            EditText edit_wakeUpDef = (EditText) findViewById(R.id.edit_timeWakeDef);
+            String string_wakeUpDef = edit_wakeUpDef.getText().toString();
+            onCheckboxClicked(view);
+            EditText edit_bedtimeNotif = (EditText) findViewById(R.id.edit_bedtimeNotifTime);
+            String string_bedtimeNotif = edit_bedtimeNotif.getText().toString();
+            EditText edit_logSleepNotif = (EditText) findViewById(R.id.edit_LogSleepNotifTime);
+            String string_logSleepNotif = edit_logSleepNotif.getText().toString();
+
+            DataHandler.getInstance().setSettings(string_sleepTimeDef, string_wakeUpDef,
+                    bedtimeNotif, string_bedtimeNotif, logSleepNotif, string_logSleepNotif);
         }
     }
 
@@ -34,16 +42,16 @@ public class SettingsActivity extends AppCompatActivity {
         switch(view.getId()) {
             case R.id.checkBox_bedtimeNotif:
                 if (checked) {
-                    //MITÄ KUULUU TEHDÄ EMMÄÄ TIÄ
+                    bedtimeNotif = true;
                 } else {
-                    // TEE JOTAIN
+                    bedtimeNotif = false;
                     break;
                 }
             case R.id.checkBox_logSleepNotif:
                 if (checked) {
-                    // TEE JOTAIN
+                    logSleepNotif = true;
                 } else {
-                    //TEE JOTAIN
+                    logSleepNotif = false;
                     break;
                 }
         }
