@@ -1,6 +1,10 @@
 package com.example.goodnight;
 
+import android.app.Activity;
+import android.content.SharedPreferences;
 import android.util.Log;
+
+import java.util.ArrayList;
 
 public class DataHandler {
     // variables for logging sleep
@@ -24,8 +28,16 @@ public class DataHandler {
     private boolean toggle_logSleepNotif = false;
     private double time_logSleepNotification;
 
+    //variables for data storing
+
+    private static final String PREF = "TestPref";
+    SharedPreferences prefPut;
+    SharedPreferences.Editor prefEditor;
+    SharedPreferences prefGet;
+
     // other variables necessary in class
     private static final DataHandler ourInstance = new DataHandler();
+    private ArrayList<Night> nights = new ArrayList<>();
 
     private DataHandler() {
     }
@@ -54,11 +66,11 @@ public class DataHandler {
         this.timeDef_toSleep = timeDef_toSleep;
         this.timeDef_wakeUp = timeDef_wakeUp;
 
-        if (userBedTimeNotification != false) {
+        if (userBedTimeNotification) {
             this.toggle_bedTimeNotif = true;
             this.time_bedTimeNotification = time_bedTimeNotification;
         }
-        if (userLogSleepNotification != false) {
+        if (userLogSleepNotification) {
             this.toggle_logSleepNotif = true;
             this.time_logSleepNotification = time_logSleepNotification;
         }
@@ -74,7 +86,27 @@ public class DataHandler {
         this.maara = luku;
     }
 
+    /*
+
+    KATRILLA TYÖN ALLA!
+    public void storeData {
+
+        nights.add(new Night(time_ToSleep, time_wakeUp, time_slept, mood, cb_special, cb_napping, cb_exercise);
+
+        prefPut = getSharedPreferences(PREF, Activity.MODE_PRIVATE);
+        prefEditor = prefPut.edit();
+
+
+
+        //prefEditor.putString("onCreate", counterOnCreate.getCounter());
+        //prefEditor.putString("onStart", counterOnStart.getCounter());
+        //prefEditor.putString("onResume", counterOnResume.getCounter());
+
+        prefEditor.commit();
+    }*/
 }
+
+
 
 
 /*
