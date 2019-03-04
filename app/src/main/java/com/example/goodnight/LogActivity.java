@@ -54,8 +54,6 @@ public class LogActivity extends AppCompatActivity {
         } else {
             sleepT=time2-time1;
         }
-        String sleepTime= String.format("%.2f", sleepT);
-        ((TextView) findViewById(R.id.unta)).setText(sleepTime);
         DataHandler.getInstance().setSleepLogging(time1, time2, sleepT);
     }
 
