@@ -1,9 +1,11 @@
 package com.example.goodnight;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class DataHandler {
@@ -28,15 +30,16 @@ public class DataHandler {
     private double time_logSleepNotification;
 
     //variables for data storing
-
     private static final String PREF = "TestPref";
     SharedPreferences prefPut;
     SharedPreferences.Editor prefEditor;
     SharedPreferences prefGet;
+    //TinyDB tinydb = new TinyDB(context);
+    int index = 0;
 
     // other variables necessary in class
     private static final DataHandler ourInstance = new DataHandler();
-   // private ArrayList<Night> nights = new ArrayList<>();
+    private ArrayList<Night> nights = new ArrayList<>();
 
     private DataHandler() {
     }
@@ -75,24 +78,36 @@ public class DataHandler {
         }
     }
 
-    /*
+    public void setNights(ArrayList<Night> nights) {
+        this.nights = nights;
+    }
 
-    KATRILLA TYÖN ALLA!
-    public void storeData {
+    public ArrayList<Night> getNights() {
+        return nights;
+    }
 
-        nights.add(new Night(time_ToSleep, time_wakeUp, time_slept, mood, cb_special, cb_napping, cb_exercise);
+    //KATRILLA TYÖN ALLA!    /*ÄLÄ POISTA T: KATRI*/
+    //koska tämän voi toteuttaa? ei toimi tällaisenaan, kun jotta Nightin voisi lisätä arraylistiin,
+    // pitäisi olla kaikissa muuttujissa dataa, eli olla toteutunut setSleepLogging, setMood ja
+    //myös checkboxit.
+    public void storeData(){
 
-        prefPut = getSharedPreferences(PREF, Activity.MODE_PRIVATE);
+        nights.add(new Night(time_ToSleep, time_wakeUp, time_slept, mood, cb_special, cb_napping, cb_exercise));
+
+//        tinydb.putListObject("sleepData", ArrayList<Night> nights);
+
+        //Night night = new Night(time_ToSleep, time_wakeUp, time_slept, mood, cb_special, cb_napping, cb_exercise);
+        //tinydb.putObject(Integer.toString(index), night); //saves the object
+
+/*        prefPut = getSharedPreferences(PREF, Activity.MODE_PRIVATE);
         prefEditor = prefPut.edit();
 
+        prefEditor.putString("onCreate", counterOnCreate.getCounter());
+        prefEditor.putString("onStart", counterOnStart.getCounter());
+        prefEditor.putString("onResume", counterOnResume.getCounter());
 
-
-        //prefEditor.putString("onCreate", counterOnCreate.getCounter());
-        //prefEditor.putString("onStart", counterOnStart.getCounter());
-        //prefEditor.putString("onResume", counterOnResume.getCounter());
-
-        prefEditor.commit();
-    }*/
+        prefEditor.commit();*/
+    }
 }
 
 

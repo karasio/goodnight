@@ -36,6 +36,7 @@ public class SettingsActivity extends AppCompatActivity {
 
 
             //DataHandler.getInstance().setSettings();
+
         }
     }
 
