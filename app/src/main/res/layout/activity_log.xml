@@ -73,22 +73,9 @@
         android:fontFamily="sans-serif-condensed-light"
         android:text="@string/time_wakeup"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/text_awake"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_howSleep" />
-
-    <TextView
-        android:id="@+id/text_awake"
-        android:layout_width="130dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="sans-serif-condensed-light"
-        android:text="@string/wakeUpNight"
-        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline40"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_wakeUp" />
+        app:layout_constraintTop_toBottomOf="@+id/text_howSleep" />
 
     <TextView
         android:id="@+id/text_moodTracker"
@@ -201,6 +188,7 @@
         android:layout_marginBottom="8dp"
         android:background="@null"
         android:contentDescription="TODO"
+        android:onClick="moodButtonPressed"
         app:layout_constraintBottom_toTopOf="@+id/guideline60"
         app:layout_constraintEnd_toStartOf="@+id/button_happy"
         app:layout_constraintStart_toStartOf="parent"
@@ -216,6 +204,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@null"
+        android:onClick="moodButtonPressed"
         app:layout_constraintBottom_toTopOf="@+id/guideline60"
         app:layout_constraintEnd_toStartOf="@+id/button_meh"
         app:layout_constraintStart_toEndOf="@+id/button_veryhappy"
@@ -231,6 +220,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@null"
+        android:onClick="moodButtonPressed"
         app:layout_constraintBottom_toTopOf="@+id/guideline60"
         app:layout_constraintEnd_toStartOf="@+id/button_sad"
         app:layout_constraintStart_toEndOf="@+id/button_happy"
@@ -247,6 +237,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@null"
+        android:onClick="moodButtonPressed"
         app:layout_constraintBottom_toTopOf="@+id/guideline60"
         app:layout_constraintEnd_toStartOf="@+id/button_verysad"
         app:layout_constraintStart_toEndOf="@+id/button_meh"
@@ -263,6 +254,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@null"
+        android:onClick="moodButtonPressed"
         app:layout_constraintBottom_toTopOf="@+id/guideline60"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button_sad"
@@ -274,24 +266,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:text="UNTA"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline40"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_awake" />
-
-    <EditText
-        android:id="@+id/awake"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:inputType="number"
-        app:layout_constraintBaseline_toBaselineOf="@+id/text_awake"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text_awake" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

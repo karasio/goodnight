@@ -1,5 +1,7 @@
 package com.example.goodnight;
 
+import android.util.Log;
+
 public class DataHandler {
     // variables for logging sleep
     private double time_ToSleep;
@@ -32,15 +34,18 @@ public class DataHandler {
         return ourInstance;
     }
 
-    public void setSleepLogging(String time_ToSleep, String time_wakeUp, String time_awake,
-                                String mood, String cb_special, String cb_napping, String cb_exercise) {
-        //    this.time_ToSleep = time_ToSleep;
-        //    this.time_wakeUp = time_wakeUp;
-        //  this.time_awake = time_awake;
-        // this.mood = mood;
-        // this.cb_special = cb_special;
-        // this.cb_napping = cb_napping;
-        // this.cb_exercise = cb_exercise;
+    public void setSleepLogging(double time_ToSleep, double time_wakeUp, double time_slept) {
+        this.time_ToSleep = time_ToSleep;
+        this.time_wakeUp = time_wakeUp;
+        this.time_slept = time_slept;
+        Log.d("appi","timeToSleep " + time_ToSleep);
+        Log.d("appi", "timeToWakeup " + time_wakeUp);
+        Log.d("appi", "timeSlept " + time_slept);
+    }
+
+    public void setMood(int mood) {
+        this.mood = mood;
+        Log.d("appi", "mood " + mood);
     }
 
     public void setSettings(double timeDef_toSleep, double timeDef_wakeUp,
