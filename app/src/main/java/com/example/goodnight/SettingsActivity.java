@@ -6,31 +6,36 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TimePicker;
 
 public class SettingsActivity extends AppCompatActivity {
-    boolean bedtimeNotif;
-    boolean logSleepNotif;
+    private TimePicker picker3;
+    private TimePicker picker4;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+        picker3 = (TimePicker) findViewById(R.id.timePicker3);
+        picker3.setIs24HourView(true);
+        picker4 = (TimePicker) findViewById(R.id.timePicker4);
+        picker4.setIs24HourView(true);
+    }
+
+    public void defaultSleepingTime () {
+        int hour3 = picker3.getHour();
+        int minute3 = picker3.getMinute();
+
+        int hour4 = picker4.getHour();
+        int minute4 = picker4.getMinute();
     }
 
     public void buttonPressed(View view) {
         if (view.getId() == R.id.button_saveSettings) {
-            EditText edit_sleepTimeDef = (EditText) findViewById(R.id.edit_sleepTimeDef);
-            String string_sleepTimeDef = edit_sleepTimeDef.getText().toString();
-            EditText edit_wakeUpDef = (EditText) findViewById(R.id.edit_timeWakeDef);
-            String string_wakeUpDef = edit_wakeUpDef.getText().toString();
-            onCheckboxClicked(view);
-            EditText edit_bedtimeNotif = (EditText) findViewById(R.id.edit_bedtimeNotifTime);
-            String string_bedtimeNotif = edit_bedtimeNotif.getText().toString();
-            EditText edit_logSleepNotif = (EditText) findViewById(R.id.edit_LogSleepNotifTime);
-            String string_logSleepNotif = edit_logSleepNotif.getText().toString();
 
-            DataHandler.getInstance().setSettings(string_sleepTimeDef, string_wakeUpDef,
-                    bedtimeNotif, string_bedtimeNotif, logSleepNotif, string_logSleepNotif);
+
+            //DataHandler.getInstance().setSettings();
         }
     }
 
@@ -42,16 +47,16 @@ public class SettingsActivity extends AppCompatActivity {
         switch(view.getId()) {
             case R.id.checkBox_bedtimeNotif:
                 if (checked) {
-                    bedtimeNotif = true;
+                    //MITÄ KUULUU TEHDÄ EMMÄÄ TIÄ
                 } else {
-                    bedtimeNotif = false;
+                    // TEE JOTAIN
                     break;
                 }
             case R.id.checkBox_logSleepNotif:
                 if (checked) {
-                    logSleepNotif = true;
+                    // TEE JOTAIN
                 } else {
-                    logSleepNotif = false;
+                    //TEE JOTAIN
                     break;
                 }
         }

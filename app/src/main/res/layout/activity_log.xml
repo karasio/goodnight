@@ -26,33 +26,42 @@
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="@string/time_bed"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/text_wakeUp"
-        app:layout_constraintEnd_toStartOf="@+id/edit_timeSleep"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header_howSleep" />
 
-    <EditText
-        android:id="@+id/edit_timeSleep"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
+    <TimePicker
+        android:id="@+id/timePicker1"
+        android:layout_width="244dp"
+        android:layout_height="136dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:fontFamily="sans-serif-condensed"
-        android:hint="@string/time_sleepDef"
-        android:inputType="time"
-        app:layout_constraintBottom_toTopOf="@+id/edit_timeWakeup"
+        android:timePickerMode="spinner"
+        app:layout_constraintBottom_toTopOf="@+id/guideline30"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.564"
         app:layout_constraintStart_toEndOf="@+id/text_howSleep"
         app:layout_constraintTop_toBottomOf="@+id/header_howSleep" />
+
+    <TimePicker
+        android:id="@+id/timePicker2"
+        android:layout_width="244dp"
+        android:layout_height="137dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="80dp"
+        android:timePickerMode="spinner"
+        app:layout_constraintBottom_toTopOf="@+id/guideline40"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_wakeUp"
+        app:layout_constraintTop_toTopOf="@+id/guideline30" />
 
     <TextView
         android:id="@+id/text_wakeUp"
@@ -60,66 +69,13 @@
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="@string/time_wakeup"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/text_awake"
-        app:layout_constraintEnd_toStartOf="@+id/edit_timeWakeup"
+        app:layout_constraintBottom_toTopOf="@+id/guideline40"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_howSleep" />
-
-    <EditText
-        android:id="@+id/edit_timeWakeup"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:fontFamily="sans-serif-condensed"
-        android:hint="@string/time_wakeDef"
-        android:inputType="time"
-        app:layout_constraintBottom_toTopOf="@+id/edit_awake"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text_wakeUp"
-        app:layout_constraintTop_toBottomOf="@+id/edit_timeSleep" />
-
-    <TextView
-        android:id="@+id/text_awake"
-        android:layout_width="130dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="sans-serif-condensed-light"
-        android:text="@string/wakeUpNight"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline40"
-        app:layout_constraintEnd_toStartOf="@+id/edit_awake"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_wakeUp" />
-
-    <EditText
-        android:id="@+id/edit_awake"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:fontFamily="sans-serif-condensed"
-        android:hint="@string/time_wakeUpNightDef"
-        android:inputType="time"
-        app:layout_constraintBottom_toTopOf="@+id/guideline40"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text_awake"
-        app:layout_constraintTop_toBottomOf="@+id/edit_timeWakeup" />
 
     <TextView
         android:id="@+id/text_moodTracker"
@@ -143,12 +99,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="32dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="@string/cb_special"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox_naps"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button_saveLog"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline60" />
 
@@ -157,46 +111,37 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="@string/cbox_nap"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox_exercise"
+        app:layout_constraintBaseline_toBaselineOf="@+id/checkBox_exercise"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox_special" />
+        app:layout_constraintStart_toEndOf="@+id/checkBox_exercise" />
 
     <CheckBox
         android:id="@+id/checkBox_exercise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="@string/cbox_exercise"
-        app:layout_constraintBottom_toTopOf="@+id/button_saveLog"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox_naps" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/checkBox_special"
+        app:layout_constraintStart_toEndOf="@+id/checkBox_special" />
 
     <Button
         android:id="@+id/button_saveLog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="8dp"
         android:backgroundTint="@android:color/holo_orange_light"
         android:fontFamily="sans-serif-condensed-light"
+        android:onClick="sleepingTime"
         android:text="@string/button_send"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox_exercise" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline20"
@@ -217,21 +162,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.4" />
+        app:layout_constraintGuide_percent="0.61" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline50"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.47" />
+        app:layout_constraintGuide_percent="0.65" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline60"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.6" />
+        app:layout_constraintGuide_percent="0.77" />
 
     <ImageButton
         android:id="@+id/button_veryhappy"
@@ -242,12 +187,13 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@null"
+        android:contentDescription="TODO"
+        android:onClick="moodButtonPressed"
         app:layout_constraintBottom_toTopOf="@+id/guideline60"
         app:layout_constraintEnd_toStartOf="@+id/button_happy"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline50"
-        app:srcCompat="@drawable/happyhappyface"
-        android:contentDescription="TODO" />
+        app:srcCompat="@drawable/happyhappyface" />
 
     <ImageButton
         android:id="@+id/button_happy"
@@ -258,6 +204,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@null"
+        android:onClick="moodButtonPressed"
         app:layout_constraintBottom_toTopOf="@+id/guideline60"
         app:layout_constraintEnd_toStartOf="@+id/button_meh"
         app:layout_constraintStart_toEndOf="@+id/button_veryhappy"
@@ -273,6 +220,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@null"
+        android:onClick="moodButtonPressed"
         app:layout_constraintBottom_toTopOf="@+id/guideline60"
         app:layout_constraintEnd_toStartOf="@+id/button_sad"
         app:layout_constraintStart_toEndOf="@+id/button_happy"
@@ -289,6 +237,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@null"
+        android:onClick="moodButtonPressed"
         app:layout_constraintBottom_toTopOf="@+id/guideline60"
         app:layout_constraintEnd_toStartOf="@+id/button_verysad"
         app:layout_constraintStart_toEndOf="@+id/button_meh"
@@ -305,6 +254,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@null"
+        android:onClick="moodButtonPressed"
         app:layout_constraintBottom_toTopOf="@+id/guideline60"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button_sad"
