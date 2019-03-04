@@ -10,6 +10,7 @@ public class DataHandler {
     private boolean cb_special;
     private boolean cb_napping;
     private boolean cb_exercise;
+    private int maara=0;
 
     // variables for feedback
 
@@ -33,13 +34,13 @@ public class DataHandler {
 
     public void setSleepLogging(String time_ToSleep, String time_wakeUp, String time_awake,
                                 String mood, String cb_special, String cb_napping, String cb_exercise) {
-        this.time_ToSleep = time_ToSleep;
-        this.time_wakeUp = time_wakeUp;
-        this.time_awake = time_awake;
-        this.mood = mood;
-        this.cb_special = cb_special;
-        this.cb_napping = cb_napping;
-        this.cb_exercise = cb_exercise;
+        //    this.time_ToSleep = time_ToSleep;
+        //    this.time_wakeUp = time_wakeUp;
+        //  this.time_awake = time_awake;
+        // this.mood = mood;
+        // this.cb_special = cb_special;
+        // this.cb_napping = cb_napping;
+        // this.cb_exercise = cb_exercise;
     }
 
     public void setSettings(double timeDef_toSleep, double timeDef_wakeUp,
@@ -56,6 +57,16 @@ public class DataHandler {
             this.toggle_logSleepNotif = true;
             this.time_logSleepNotification = time_logSleepNotification;
         }
+    }
+    public void increment() {
+        this.maara++;
+    }
+
+    public int getMaara() {
+        return this.maara;
+    }
+    public void setMaara(int luku) {
+        this.maara = luku;
     }
 
 }
