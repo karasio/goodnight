@@ -16,7 +16,6 @@ public class DataHandler {
     private boolean cb_special;
     private boolean cb_napping;
     private boolean cb_exercise;
-    private int maara=0;
 
     // variables for feedback
 
@@ -37,7 +36,7 @@ public class DataHandler {
 
     // other variables necessary in class
     private static final DataHandler ourInstance = new DataHandler();
-    private ArrayList<Night> nights = new ArrayList<>();
+   // private ArrayList<Night> nights = new ArrayList<>();
 
     private DataHandler() {
     }
@@ -74,16 +73,6 @@ public class DataHandler {
             this.toggle_logSleepNotif = true;
             this.time_logSleepNotification = time_logSleepNotification;
         }
-    }
-    public void increment() {
-        this.maara++;
-    }
-
-    public int getMaara() {
-        return this.maara;
-    }
-    public void setMaara(int luku) {
-        this.maara = luku;
     }
 
     /*

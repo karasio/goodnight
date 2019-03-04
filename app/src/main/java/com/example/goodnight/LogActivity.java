@@ -25,27 +25,13 @@ public class LogActivity extends AppCompatActivity {
 
     // counting sleeping time
     public void sleepingTime(View view) {
-        int hour1; //sleeping time
-        int minute1; //sleeping time
-        if (Build.VERSION.SDK_INT >= 23) { //API version
-            hour1 = picker1.getHour();
-            minute1 = picker1.getMinute();
-        } else {
-            hour1 = picker1.getCurrentHour();
-            minute1 = picker1.getCurrentMinute();
-        }
+        int hour1 = picker1.getHour();
+        int minute1= picker1.getMinute();
 
-        int hour2; //wake-up time
-        int minute2; //wake-up time
-        if (Build.VERSION.SDK_INT >= 23) { //API version
-            hour2 = picker2.getHour();
-            minute2 = picker2.getMinute();
-        } else {
-            hour2 = picker2.getCurrentHour();
-            minute2 = picker2.getCurrentMinute();
-        }
+        int hour2 = picker2.getHour();
+        int minute2 = picker2.getMinute();
 
-        double sleepT; //
+        double sleepT; //duration of the sleep
         double time1=hour1 + minute1/60.0;
         double time2=hour2 + minute2/60.0;
 
