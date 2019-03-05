@@ -41,6 +41,7 @@ public class LogActivity extends AppCompatActivity {
             sleepT=time2-time1;
         }
         DataHandler.getInstance().setSleepLogging(time1, time2, sleepT);
+
     }
 
     public void moodButtonPressed(View view) {

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
+import android.view.ViewDebug;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,6 +19,9 @@ public class DataHandler {
     private boolean cb_special;
     private boolean cb_napping;
     private boolean cb_exercise;
+    private int testiYot; //Kimmon testimuuttuja FeedbackActivitylle
+    private double testiSumma; //Kimmon testimuuttuja FeedbackActivitylle
+    private int testiMoodS; //Kimmon testimuuttuja FeedbackActivitylle
 
     // variables for feedback
 
@@ -55,18 +59,41 @@ public class DataHandler {
         Log.d("appi","timeToSleep " + time_ToSleep);
         Log.d("appi", "timeToWakeup " + time_wakeUp);
         Log.d("appi", "timeSlept " + time_slept);
+
+        //Kimmon testit
+        testiYot++;
+        Log.d("appi","yo " + testiYot);
+        testiSumma +=time_slept;
+        Log.d("appi", "aika " + testiSumma);
+        //
     }
+
+    // Kimmon testimetodit FeedbackActivitylle
+    public int getYot() {
+        return testiYot;
+    }
+    public Double getSumma() {
+        return testiSumma;
+    }
+    public int getMoodSum () {
+        return testiMoodS;
+    }
+    //
+
 
     public void setMood(int mood) {
         this.mood = mood;
         Log.d("appi", "mood " + mood);
+
+        //Kimmon testit FeedbackActivitylle
+        testiMoodS += mood;
+        Log.d("appi", "moodsumma" + testiMoodS);
+        //
     }
 
-    public void setSettings(double timeDef_toSleep, double timeDef_wakeUp,
+    public void setSettings(
                             boolean userBedTimeNotification, double time_bedTimeNotification,
                             boolean userLogSleepNotification, double time_logSleepNotification) {
-        this.timeDef_toSleep = timeDef_toSleep;
-        this.timeDef_wakeUp = timeDef_wakeUp;
 
         if (userBedTimeNotification) {
             this.toggle_bedTimeNotif = true;
