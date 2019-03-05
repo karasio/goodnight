@@ -71,12 +71,12 @@ public class DataHandler {
 
         //Kimmon testit
         testiYot++;
-        Log.d("appi","yo " + testiYot);
+        Log.d("appi","nights " + testiYot);
         testiSumma +=time_slept;
-        Log.d("appi", "aika " + testiSumma);
+        Log.d("appi", "sleepTimeTotal " + testiSumma);
         //Kimmon testit FeedbackActivitylle
         testiMoodS += mood;
-        Log.d("appi", "moodsumma" + testiMoodS);
+        Log.d("appi", "moodSum " + testiMoodS);
         //
     }
 
@@ -99,7 +99,7 @@ public class DataHandler {
 
         //Kimmon testit FeedbackActivitylle
         testiMoodS += mood;
-        Log.d("appi", "moodsumma" + testiMoodS);
+        Log.d("appi", "moodsumma " + testiMoodS);
         //
     }
 

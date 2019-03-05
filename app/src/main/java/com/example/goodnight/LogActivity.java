@@ -1,5 +1,6 @@
 package com.example.goodnight;
 
+import android.content.Intent;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -63,6 +64,7 @@ public class LogActivity extends AppCompatActivity {
 
         if (view.getId() == R.id.button_saveLog) {
             DataHandler.getInstance().setSleepLogging(time1, time2, sleepT, mood, cb_special, cb_napping, cb_exercise);
+            finish();
         }
     }
 
