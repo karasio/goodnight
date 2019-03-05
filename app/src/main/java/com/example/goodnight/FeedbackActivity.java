@@ -15,9 +15,9 @@ public class FeedbackActivity extends AppCompatActivity {
         ImageView imageView = (ImageView) findViewById(R.id.mood);
 
         double average = (double) DataHandler.getInstance().getSumma() / DataHandler.getInstance().getYot();
-        String ka = Double.toString(average);
+        String aver = Double.toString(average);
 
-        ((TextView) findViewById(R.id.text_hoursSlept)).setText(ka);
+        ((TextView) findViewById(R.id.text_hoursSlept)).setText(aver);
 
         double moodavg = (double) DataHandler.getInstance().getMoodSum() / DataHandler.getInstance().getYot();
         Log.d("appi", "moodavg  " + moodavg);

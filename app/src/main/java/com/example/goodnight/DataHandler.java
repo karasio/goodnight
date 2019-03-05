@@ -92,17 +92,6 @@ public class DataHandler {
     }
     //
 
-
-    public void setMood(int mood) {
-        this.mood = mood;
-        Log.d("appi", "mood " + mood);
-
-        //Kimmon testit FeedbackActivitylle
-        testiMoodS += mood;
-        Log.d("appi", "moodsumma " + testiMoodS);
-        //
-    }
-
     public void setSettings(
                             boolean userBedTimeNotification, double time_bedTimeNotification,
                             boolean userLogSleepNotification, double time_logSleepNotification) {
