@@ -2,6 +2,7 @@ package com.example.goodnight;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,15 +19,16 @@ public class FeedbackActivity extends AppCompatActivity {
 
         ((TextView) findViewById(R.id.text_hoursSlept)).setText(ka);
 
-        double mood = DataHandler.getInstance().getMoodSum() / DataHandler.getInstance().getYot();
+        double moodavg = DataHandler.getInstance().getMoodSum() / DataHandler.getInstance().getYot();
+        Log.d("appi", "moodavg  " + moodavg);
 
-        if (mood >= 4.5) {
+        if (moodavg >= 4.5) {
             imageView.setImageResource(R.drawable.happyhappyface);
-        } else if (mood >= 3.5 && mood < 4.5) {
+        } else if (moodavg >= 3.5 && moodavg < 4.5) {
             imageView.setImageResource(R.drawable.happyface);
-        } else if (mood >= 2.5 && mood < 3.5) {
+        } else if (moodavg >= 2.5 && moodavg < 3.5) {
             imageView.setImageResource(R.drawable.nothappynorsadface);
-        } else if (mood >= 1.5 && mood < 2.5) {
+        } else if (moodavg >= 1.5 && moodavg < 2.5) {
             imageView.setImageResource(R.drawable.sadface);
         } else
             imageView.setImageResource(R.drawable.sadsadface);

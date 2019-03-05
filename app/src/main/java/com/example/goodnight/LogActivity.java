@@ -3,6 +3,7 @@ package com.example.goodnight;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
@@ -12,6 +13,12 @@ public class LogActivity extends AppCompatActivity {
     private TimePicker picker1;
     private TimePicker picker2;
     private int mood;
+    double sleepT;
+    double time1;
+    double time2;
+    boolean cb_special = false;
+    boolean cb_napping = false;
+    boolean cb_exercise = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,27 +30,43 @@ public class LogActivity extends AppCompatActivity {
         picker2.setIs24HourView(true);
     }
 
-    // counting sleeping time
-    public void sleepingTime(View view) {
+    // GETTING VALUES WHEN SAVE BUTTON IS PRESSED
+    public void saveButtonPressed(View view) {
+        // getting time values from time pickers
         int hour1 = picker1.getHour();
         int minute1= picker1.getMinute();
 
         int hour2 = picker2.getHour();
         int minute2 = picker2.getMinute();
 
-        double sleepT; //duration of the sleep
-        double time1=hour1 + minute1/60.0;
-        double time2=hour2 + minute2/60.0;
+        //double sleepT; //duration of the sleep
+        //double time1=hour1 + minute1/60.0;
+        //double time2=hour2 + minute2/60.0;
+
+        time1 = hour1 + minute1/60.0;
+        time2 = hour2 + minute2/60.0;
 
         if (hour1>hour2 || (hour1==hour2 && minute1>minute2)) {
             sleepT=(24.0-time1)+time2;
         } else {
             sleepT=time2-time1;
         }
-        DataHandler.getInstance().setSleepLogging(time1, time2, sleepT);
 
+        //Debug printing
+        Log.d("logactivity","time1 " + time1);
+        Log.d("logactivity", "time2 " + time2);
+        Log.d("logactivity", "timeSlept " + sleepT);
+        Log.d("logactivity", "mood  " + mood);
+        Log.d("logactivity", "cb special " + cb_special);
+        Log.d("logactivity", "cb_napping " + cb_napping);
+        Log.d("logactivity", "cb exer " + cb_exercise);
+
+        if (view.getId() == R.id.button_saveLog) {
+            DataHandler.getInstance().setSleepLogging(time1, time2, sleepT, mood, cb_special, cb_napping, cb_exercise);
+        }
     }
 
+    // mood button listener
     public void moodButtonPressed(View view) {
         if (view.getId() == R.id.button_veryhappy) {
             mood = 5;
@@ -56,9 +79,9 @@ public class LogActivity extends AppCompatActivity {
         } else if (view.getId() == R.id.button_verysad) {
             mood = 1;
         }
-        DataHandler.getInstance().setMood(mood);
     }
 
+    //checkbox listener
     public void onCheckboxClicked(View view) {
         // Is the view now checked?
         boolean checked = ((CheckBox) view).isChecked();
@@ -67,27 +90,52 @@ public class LogActivity extends AppCompatActivity {
         switch(view.getId()) {
             case R.id.checkBox_special:
                 if (checked) {
-                    //MITÄ KUULUU TEHDÄ EMMÄÄ TIÄ
+                    cb_special = true;
                 } else {
-                    // TEE JOTAIN
-                    break;
+                    cb_special = false;
                 }
+                break;
             case R.id.checkBox_naps:
                 if (checked) {
-                    // TEE JOTAIN
+                    cb_napping = true;
                 } else {
-                    //TEE JOTAIN
-                    break;
+                    cb_napping = false;
                 }
+                break;
             case R.id.checkBox_exercise:
                 if (checked) {
-                    // TEE JOTAIN
+                    cb_exercise = true;
                 } else {
-                    // TEE JOTAIN
-                    break;
+                    cb_exercise = false;
                 }
+                break;
         }
     }
+
+    // counting sleeping time
+
+    // SIIRSIN TÄMÄN TOIMINALLISUUDEN SAVEBUTTONPRESSEDIIN //KR
+    public void sleepingTime(View view) {
+        int hour1 = picker1.getHour();
+        int minute1= picker1.getMinute();
+
+        int hour2 = picker2.getHour();
+        int minute2 = picker2.getMinute();
+
+        //double sleepT; //duration of the sleep
+        //double time1=hour1 + minute1/60.0;
+        //double time2=hour2 + minute2/60.0;
+
+        if (hour1>hour2 || (hour1==hour2 && minute1>minute2)) {
+            sleepT=(24.0-time1)+time2;
+        } else {
+            sleepT=time2-time1;
+        }
+        Log.d("logactivity","time1 " + time1);
+        Log.d("logactivity", "time2 " + time2);
+        Log.d("logactivity", "timeSlept " + sleepT);
+    }
+
 
 }
 //Sourcecode for TimePicker: https://www.tutlane.com/tutorial/android/android-timepicker-with-examples

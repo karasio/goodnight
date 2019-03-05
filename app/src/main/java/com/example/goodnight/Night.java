@@ -75,4 +75,17 @@ public class Night {
     public void setCb_exercise(boolean cb_exercise) {
         this.cb_exercise = cb_exercise;
     }
+
+    @Override
+    public String toString() {
+        return "Night{" +
+                "time_ToSleep=" + time_ToSleep +
+                ", time_wakeUp=" + time_wakeUp +
+                ", time_slept=" + time_slept +
+                ", mood=" + mood +
+                ", cb_special=" + cb_special +
+                ", cb_napping=" + cb_napping +
+                ", cb_exercise=" + cb_exercise +
+                '}';
+    }
 }

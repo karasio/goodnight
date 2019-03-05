@@ -13,7 +13,6 @@ public class DataHandler {
     // variables for logging sleep
     private double time_ToSleep;
     private double time_wakeUp;
-    private double time_awake;
     private double time_slept;
     private int mood;
     private boolean cb_special;
@@ -28,18 +27,13 @@ public class DataHandler {
     // variables for settings
     private double timeDef_toSleep;
     private double timeDef_wakeUp;
-    private boolean toggle_bedTimeNotif = false;
+    private boolean toggle_bedTimeNotif;
     private double time_bedTimeNotification;
     private boolean toggle_logSleepNotif = false;
     private double time_logSleepNotification;
 
     //variables for data storing
-    private static final String PREF = "TestPref";
-    SharedPreferences prefPut;
-    SharedPreferences.Editor prefEditor;
-    SharedPreferences prefGet;
-    //TinyDB tinydb = new TinyDB(context);
-    int index = 0;
+
 
     // other variables necessary in class
     private static final DataHandler ourInstance = new DataHandler();
@@ -52,19 +46,37 @@ public class DataHandler {
         return ourInstance;
     }
 
-    public void setSleepLogging(double time_ToSleep, double time_wakeUp, double time_slept) {
+    public void setSleepLogging(double time_ToSleep, double time_wakeUp, double time_slept, int mood, boolean cb_special, boolean cb_napping, boolean cb_exercise) {
         this.time_ToSleep = time_ToSleep;
         this.time_wakeUp = time_wakeUp;
         this.time_slept = time_slept;
+        this.mood = mood;
+        this.cb_special = cb_special;
+        this.cb_napping = cb_napping;
+        this.cb_exercise = cb_exercise;
+
+        // Add values to  ArrayList
+        nights.add(new Night(time_ToSleep, time_wakeUp, time_slept, mood, cb_special, cb_napping, cb_exercise));
+        //DEBUG PRINTING
         Log.d("appi","timeToSleep " + time_ToSleep);
         Log.d("appi", "timeToWakeup " + time_wakeUp);
         Log.d("appi", "timeSlept " + time_slept);
+        Log.d("appi", "mood  " + mood);
+        Log.d("appi", "cb special " + cb_special);
+        Log.d("appi", "cb_napping " + cb_napping);
+        Log.d("appi", "cb exer " + cb_exercise);
+
+
+        Log.d("appi", "Arraylist: " + nights.toString());
 
         //Kimmon testit
         testiYot++;
         Log.d("appi","yo " + testiYot);
         testiSumma +=time_slept;
         Log.d("appi", "aika " + testiSumma);
+        //Kimmon testit FeedbackActivitylle
+        testiMoodS += mood;
+        Log.d("appi", "moodsumma" + testiMoodS);
         //
     }
 
@@ -117,23 +129,10 @@ public class DataHandler {
     //koska tämän voi toteuttaa? ei toimi tällaisenaan, kun jotta Nightin voisi lisätä arraylistiin,
     // pitäisi olla kaikissa muuttujissa dataa, eli olla toteutunut setSleepLogging, setMood ja
     //myös checkboxit.
+
     public void storeData(){
 
         nights.add(new Night(time_ToSleep, time_wakeUp, time_slept, mood, cb_special, cb_napping, cb_exercise));
-
-//        tinydb.putListObject("sleepData", ArrayList<Night> nights);
-
-        //Night night = new Night(time_ToSleep, time_wakeUp, time_slept, mood, cb_special, cb_napping, cb_exercise);
-        //tinydb.putObject(Integer.toString(index), night); //saves the object
-
-/*        prefPut = getSharedPreferences(PREF, Activity.MODE_PRIVATE);
-        prefEditor = prefPut.edit();
-
-        prefEditor.putString("onCreate", counterOnCreate.getCounter());
-        prefEditor.putString("onStart", counterOnStart.getCounter());
-        prefEditor.putString("onResume", counterOnResume.getCounter());
-
-        prefEditor.commit();*/
     }
 }
 

@@ -18,21 +18,49 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     Intent intent;
     SharedPreferences prefPut;
-    SharedPreferences.Editor prefEditor;
+    SharedPreferences Prefs;
+    SharedPreferences.Editor prefsEditor;
     SharedPreferences prefGet;
     //private static final String PREF = "TestPref"; /*ÄLÄ POISTA T: KATRI*/
-    //Context context; /*ÄLÄ POISTA T: KATRI*/
+    Context context = MainActivity.this; /*ÄLÄ POISTA T: KATRI*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //DataHandler.getInstance().setNights(loadNights(context)); /*ÄLÄ POISTA T: KATRI*/
+
+        ArrayList<Night> savedNights = new ArrayList<Night>();
+        SharedPreferences mPrefs = context.getSharedPreferences("sleepData", context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = mPrefs.getString("myJson", "");
+        if (json.isEmpty()) {
+            savedNights = new ArrayList<Night>();
+        } else {
+            Type type = new TypeToken<ArrayList<Night>>() {
+            }.getType();
+            savedNights = gson.fromJson(json, type);
+        }
+
+        //Retrieve the values
+//        Gson gson = new Gson();
+//        String jsonText = Prefs.getString("sleepData", null);
+//        String[] text = gson.fromJson(jsonText, String[].class);  //EDIT: gso to gson
+
+        DataHandler.getInstance().setNights(loadNights(context)); /*ÄLÄ POISTA T: KATRI*/
     }
 
     @Override
     public void onPause() {
         super.onPause();
+
+        ArrayList<Night> nights = DataHandler.getInstance().getNights();
+
+        SharedPreferences mPrefs = context.getSharedPreferences("sleepData", context.MODE_PRIVATE);
+        SharedPreferences.Editor prefsEditor = mPrefs.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(nights);
+        prefsEditor.putString("myJson", json);
+        prefsEditor.commit();
 
         //saveNights(context, DataHandler.getInstance().getNights()); /*ÄLÄ POISTA T: KATRI*/
     }

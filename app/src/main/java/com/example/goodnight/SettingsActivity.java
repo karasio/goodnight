@@ -11,6 +11,8 @@ import android.widget.TimePicker;
 public class SettingsActivity extends AppCompatActivity {
     private TimePicker picker3;
     private TimePicker picker4;
+    private boolean cb_sleepTimeNotif;
+    private boolean cb_logSleepNotif;
 
 
     @Override
@@ -22,22 +24,25 @@ public class SettingsActivity extends AppCompatActivity {
         picker4 = (TimePicker) findViewById(R.id.timePicker4);
         picker4.setIs24HourView(true);
     }
+    // SIIRSIN TIMEPICKERIT TÄNNE, JOTTA NE SAA TRIGGATTUA TOHON SAVE-BUTTONIIN,
+    // SAMA MINKÄ TEIN LOGACTIVITYSSÄ, ET SAADAAN KAIKKI KAMA MUUTTUJIIN JA MUISTIIN YHDESSÄ METODISSA
+    public void saveButtonPressed(View view) {
 
-    public void defaultSleepingTime () {
         int hour3 = picker3.getHour();
         int minute3 = picker3.getMinute();
 
         int hour4 = picker4.getHour();
         int minute4 = picker4.getMinute();
-    }
 
-    public void buttonPressed(View view) {
         if (view.getId() == R.id.button_saveSettings) {
-
 
             //DataHandler.getInstance().setSettings();
 
         }
+    }
+
+    public void defaultSleepingTime () {
+
     }
 
     public void onCheckboxClicked(View view) {
@@ -45,21 +50,21 @@ public class SettingsActivity extends AppCompatActivity {
         boolean checked = ((CheckBox) view).isChecked();
 
         // Check which checkbox was clicked
-        switch(view.getId()) {
+        switch (view.getId()) {
             case R.id.checkBox_bedtimeNotif:
                 if (checked) {
-                    //MITÄ KUULUU TEHDÄ EMMÄÄ TIÄ
+                    cb_sleepTimeNotif = true;
                 } else {
-                    // TEE JOTAIN
-                    break;
+                    cb_sleepTimeNotif = false;
                 }
+                break;
             case R.id.checkBox_logSleepNotif:
                 if (checked) {
-                    // TEE JOTAIN
+                    cb_logSleepNotif = true;
                 } else {
-                    //TEE JOTAIN
-                    break;
+                    cb_logSleepNotif = false;
                 }
+                break;
         }
     }
 }
