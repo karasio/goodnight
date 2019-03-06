@@ -72,7 +72,9 @@ public class MainActivity extends AppCompatActivity {
             intent = new Intent(this, FeedbackActivity.class);
         } else if (view.getId() == R.id.button_log) {
             intent = new Intent(this, LogActivity.class);
-        }
+        } /* else if (view.getId() == R.id.button_tips) {
+            intent = new Intent(this, TipsActivity.class);
+        } */
         startActivity(intent);
     }
 
