@@ -76,6 +76,7 @@ public class LogActivity extends AppCompatActivity {
         RadioButton checkedRadioButton = rGroup.findViewById(rGroup.getCheckedRadioButtonId());
         if (checkedRadioButton == findViewById(R.id.button_veryhappy)) {
             mood = 5;
+
         } else if (checkedRadioButton == findViewById(R.id.button_happy)) {
             mood = 4;
         } else if (checkedRadioButton == findViewById(R.id.button_meh)) {
