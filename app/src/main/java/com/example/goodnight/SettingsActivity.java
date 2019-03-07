@@ -41,6 +41,8 @@ public class SettingsActivity extends AppCompatActivity {
 
         if (view.getId() == R.id.button_saveSettings) {
             DataHandler.getInstance().setSettings(cb_sleepTimeNotif, time1, cb_logSleepNotif, time2);
+            Log.d("kake", "sleepnotif " + cb_sleepTimeNotif + " logNotif "+ cb_logSleepNotif);
+            finish();
         }
     }
 
