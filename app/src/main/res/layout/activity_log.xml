@@ -221,8 +221,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:button="@drawable/sadface"
-            android:onClick="moodButtonPressed" />
+            android:button="@drawable/bg_toggle_checked"
+            android:onClick="moodButtonPressed"
+
+            />
 
         <RadioButton
             android:id="@+id/button_verysad"
