@@ -8,12 +8,9 @@ public class Night {
     private boolean cb_special;
     private boolean cb_napping;
     private boolean cb_exercise;
-    private int howManyNights;
-    private double howManyHours;
-    private int moodSum;
 
     public Night(double time_ToSleep, double time_wakeUp, double time_slept,
-                 int mood, boolean cb_special, boolean cb_napping, boolean cb_exercise, int howManyNights, double howManyHours, int moodSum) {
+                 int mood, boolean cb_special, boolean cb_napping, boolean cb_exercise) {
         this.time_ToSleep = time_ToSleep;
         this.time_wakeUp = time_wakeUp;
         this.time_slept = time_slept;
@@ -21,9 +18,6 @@ public class Night {
         this.cb_special = cb_special;
         this.cb_napping = cb_napping;
         this.cb_exercise = cb_exercise;
-        this.howManyNights = howManyNights;
-        this.howManyHours = howManyHours;
-        this.moodSum = moodSum;
     }
 
     public double getTime_ToSleep() {
@@ -80,30 +74,6 @@ public class Night {
 
     public void setCb_exercise(boolean cb_exercise) {
         this.cb_exercise = cb_exercise;
-    }
-
-    public int getHowManyNights() {
-        return howManyNights;
-    }
-
-    public void setHowManyNights(int howManyNights) {
-        this.howManyNights = howManyNights;
-    }
-
-    public double getHowManyHours() {
-        return howManyHours;
-    }
-
-    public void setHowManyHours(double howManyHours) {
-        this.howManyHours = howManyHours;
-    }
-
-    public int getMoodSum() {
-        return moodSum;
-    }
-
-    public void setMoodSum(int moodSum) {
-        this.moodSum = moodSum;
     }
 
     @Override

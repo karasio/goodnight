@@ -27,9 +27,9 @@ public class DataHandler {
     // variables for settings
     private double timeDef_toSleep;
     private double timeDef_wakeUp;
-    private boolean toggle_bedTimeNotif;
+    private boolean cb_bedTimeNotif;
     private double time_bedTimeNotification;
-    private boolean toggle_logSleepNotif = false;
+    private boolean cb_logSleepNotif;
     private double time_logSleepNotification;
 
     //variables for data storing
@@ -67,37 +67,39 @@ public class DataHandler {
 
         Log.d("appi", "Arraylist: " + nights.toString());
 
-        howManyNights++;
-        Log.d("appi","nights " + howManyNights);
-        howManyHours +=time_slept;
-        Log.d("appi", "sleepTimeTotal " + howManyHours);
-        moodSum += mood;
-        Log.d("appi", "moodSum " + moodSum);
-    }
 
-    public int getYot() {
-
-        return howManyNights;
-    }
-    public Double getSumma() {
-        return howManyHours;
-    }
-    public int getMoodSum () {
-        return moodSum;
+//        howManyNights++;
+//        Log.d("appi","nights " + howManyNights);
+//        howManyHours +=time_slept;
+//        Log.d("appi", "sleepTimeTotal " + howManyHours);
+//        moodSum += mood;
+//        Log.d("appi", "moodSum " + moodSum);
+//    }
+//
+        
+//        //Kimmon testit
+//        howManyNights++;
+//        Log.d("appi","nights " + howManyNights);
+//        howManyHours +=time_slept;
+//        Log.d("appi", "sleepTimeTotal " + howManyHours);
+//        moodSum += mood;
+//        Log.d("appi", "moodSum " + moodSum);
     }
 
     public void setSettings(
-                            boolean userBedTimeNotification, double time_bedTimeNotification,
-                            boolean userLogSleepNotification, double time_logSleepNotification) {
+            boolean userBedTimeNotification, double time_bedTimeNotification,
+            boolean userLogSleepNotification, double time_logSleepNotification) {
 
         if (userBedTimeNotification) {
-            this.toggle_bedTimeNotif = true;
+            this.cb_bedTimeNotif = true;
             this.time_bedTimeNotification = time_bedTimeNotification;
         }
         if (userLogSleepNotification) {
-            this.toggle_logSleepNotif = true;
+            this.cb_logSleepNotif = true;
             this.time_logSleepNotification = time_logSleepNotification;
         }
+        Log.d("kake", "bedtime " + time_bedTimeNotification + " " + cb_bedTimeNotif);
+        Log.d("kake", "logsleep " + time_logSleepNotification + " " + cb_logSleepNotif);
     }
 
     public void setNights(ArrayList<Night> nights) {
@@ -112,13 +114,26 @@ public class DataHandler {
 
     public void storeData(){
 
-        nights.add(new Night(time_ToSleep, time_wakeUp, time_slept, mood, cb_special, cb_napping, cb_exercise, howManyNights, howManyHours, moodSum));
+        nights.add(new Night(time_ToSleep, time_wakeUp, time_slept, mood, cb_special, cb_napping, cb_exercise));
         Log.d("appi", "" + nights.toString());
     }
+
+    public Night getNight(int index) {
+        Night night = this.nights.get(index);
+        return night;
+    }
+
+//     public int getYot() {
+//
+//        return howManyNights;
+//    }
+//    public Double getSumma() {
+//        return howManyHours;
+//    }
+//    public int getMoodSum () {
+//        return moodSum;
+//    }
 }
-
-
-
 
 /*
 		SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
