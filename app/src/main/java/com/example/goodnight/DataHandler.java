@@ -67,7 +67,6 @@ public class DataHandler {
 
         Log.d("appi", "Arraylist: " + nights.toString());
 
-        //Kimmon testit
         howManyNights++;
         Log.d("appi","nights " + howManyNights);
         howManyHours +=time_slept;

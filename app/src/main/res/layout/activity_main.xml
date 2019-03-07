@@ -64,13 +64,16 @@
 
     <Button
         android:id="@+id/button_tips"
+        style="@android:style/Widget.DeviceDefault.Button.Colored"
         android:layout_width="395dp"
         android:layout_height="151dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:backgroundTint="@android:color/holo_green_light"
         android:fontFamily="sans-serif-condensed-light"
-        android:text="Button"
+        android:onClick="buttonPressed"
+        android:text="GUIDE FOR SLEEP"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

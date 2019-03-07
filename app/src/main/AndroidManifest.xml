@@ -33,6 +33,16 @@
             android:launchMode="singleTop"
             android:parentActivityName=".MainActivity">
         </activity>
+        <activity
+            android:name=".TipsActivity"
+            android:launchMode="singleTop"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity
+            android:name=".TipDetailsActivity"
+            android:launchMode="singleTop"
+            android:parentActivityName=".TipsActivity">
+        </activity>
 
     </application>
 
