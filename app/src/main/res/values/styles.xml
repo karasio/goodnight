@@ -8,8 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
     <style name="RadioButton">
-        <item name="android:button">@drawable/bg_toggle_checked</item>
-        <item name="android:background">@drawable/bg_toggle_checked</item>
+        <item name="android:button">@drawable/radiotoggle_checked_sad</item>
+        <item name="android:background">@drawable/radiotoggle_checked_sad</item>
         <item name="android:textColor">@color/smokyBlack</item>
         <item name="android:gravity">center</item>
         <item name="android:padding">8dp</item>

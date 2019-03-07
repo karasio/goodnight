@@ -197,7 +197,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:button="@drawable/happyhappyface"
+            android:button="@drawable/radiotoggle_checked_veryhappy"
             android:onClick="moodButtonPressed" />
 
         <RadioButton
@@ -205,7 +205,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:button="@drawable/happyface"
+            android:button="@drawable/radiotoggle_checked_happy"
             android:onClick="moodButtonPressed" />
 
         <RadioButton
@@ -213,7 +213,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:button="@drawable/nothappynorsadface"
+            android:button="@drawable/radiotoggle_checked_meh"
             android:onClick="moodButtonPressed" />
 
         <RadioButton
@@ -221,7 +221,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:button="@drawable/bg_toggle_checked"
+            android:button="@drawable/radiotoggle_checked_sad"
             android:onClick="moodButtonPressed"
 
             />
@@ -231,7 +231,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:button="@drawable/sadsadface"
+            android:button="@drawable/radiotoggle_checked_very_sad"
             android:onClick="moodButtonPressed" />
     </RadioGroup>
 
