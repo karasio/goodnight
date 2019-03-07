@@ -6,7 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -23,6 +25,7 @@ public class LogActivity extends AppCompatActivity {
     boolean cb_napping = false;
     boolean cb_exercise = false;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,8 +36,11 @@ public class LogActivity extends AppCompatActivity {
         picker2.setIs24HourView(true);
     }
 
+
+
     // GETTING VALUES WHEN SAVE BUTTON IS PRESSED
     public void saveButtonPressed(View view) {
+        TextView tv = (TextView)findViewById(R.id.warningTime);
         // getting time values from time pickers
         int hour1 = picker1.getHour();
         int minute1= picker1.getMinute();
@@ -65,8 +71,16 @@ public class LogActivity extends AppCompatActivity {
         Log.d("logactivity", "cb exer " + cb_exercise);
 
         if (view.getId() == R.id.button_saveLog) {
-            DataHandler.getInstance().setSleepLogging(time1, time2, sleepT, mood, cb_special, cb_napping, cb_exercise);
-            finish();
+            if (time1 == time2 && mood == 0) {
+                tv.setText("Pick the time and the mood!");
+            } else if (time1 == time2) {
+                tv.setText("Pick the time!");
+            } else if (mood == 0) {
+                tv.setText("Pick the mood!");
+            } else {
+                DataHandler.getInstance().setSleepLogging(time1, time2, sleepT, mood, cb_special, cb_napping, cb_exercise);
+                finish();
+            }
         }
     }
 

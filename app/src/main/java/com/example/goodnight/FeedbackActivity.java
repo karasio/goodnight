@@ -14,13 +14,17 @@ public class FeedbackActivity extends AppCompatActivity {
         setContentView(R.layout.activity_feedback);
         ImageView imageView = (ImageView) findViewById(R.id.mood);
 
-        double average = (double) DataHandler.getInstance().getSumma() / DataHandler.getInstance().getYot();
-        String aver = Double.toString(average);
+        if (DataHandler.getInstance().getYot() != 0) {
+            double average = (double) DataHandler.getInstance().getSumma() / DataHandler.getInstance().getYot();
+            String aver = String.format("%.2f", average);
+            ((TextView) findViewById(R.id.text_hoursSlept)).setText(aver);
+        } else ((TextView) findViewById(R.id.text_hoursSlept)).setText("0.0");
 
-        ((TextView) findViewById(R.id.text_hoursSlept)).setText(aver);
+        double moodavg=3.0;
+        if (DataHandler.getInstance().getYot() != 0) {
+            moodavg = (double) DataHandler.getInstance().getMoodSum() / DataHandler.getInstance().getYot();
+        }
 
-        double moodavg = (double) DataHandler.getInstance().getMoodSum() / DataHandler.getInstance().getYot();
-        Log.d("appi", "moodavg  " + moodavg);
 
         if (moodavg >= 4.5) {
             imageView.setImageResource(R.drawable.happyhappyface);
