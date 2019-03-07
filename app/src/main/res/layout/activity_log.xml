@@ -124,6 +124,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:clickable="false"
         android:fontFamily="sans-serif-condensed-light"
         android:onClick="onCheckboxClicked"
         android:text="@string/cbox_exercise"
@@ -181,88 +182,56 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.77" />
 
-    <ImageButton
-        android:id="@+id/button_veryhappy"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+    <RadioGroup
+        android:id="@+id/mood_radiogroup"
+        android:layout_width="399dp"
+        android:layout_height="89dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@null"
-        android:contentDescription="TODO"
-        android:onClick="moodButtonPressed"
-        app:layout_constraintBottom_toTopOf="@+id/guideline60"
-        app:layout_constraintEnd_toStartOf="@+id/button_happy"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline50"
-        app:srcCompat="@drawable/happyhappyface" />
-
-    <ImageButton
-        android:id="@+id/button_happy"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@null"
-        android:onClick="moodButtonPressed"
-        app:layout_constraintBottom_toTopOf="@+id/guideline60"
-        app:layout_constraintEnd_toStartOf="@+id/button_meh"
-        app:layout_constraintStart_toEndOf="@+id/button_veryhappy"
-        app:layout_constraintTop_toTopOf="@+id/guideline50"
-        app:srcCompat="@drawable/happyface" />
-
-    <ImageButton
-        android:id="@+id/button_meh"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@null"
-        android:onClick="moodButtonPressed"
-        app:layout_constraintBottom_toTopOf="@+id/guideline60"
-        app:layout_constraintEnd_toStartOf="@+id/button_sad"
-        app:layout_constraintStart_toEndOf="@+id/button_happy"
-        app:layout_constraintTop_toTopOf="@+id/guideline50"
-        app:layout_constraintVertical_bias="0.444"
-        app:srcCompat="@drawable/nothappynorsadface" />
-
-    <ImageButton
-        android:id="@+id/button_sad"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@null"
-        android:onClick="moodButtonPressed"
-        app:layout_constraintBottom_toTopOf="@+id/guideline60"
-        app:layout_constraintEnd_toStartOf="@+id/button_verysad"
-        app:layout_constraintStart_toEndOf="@+id/button_meh"
-        app:layout_constraintTop_toTopOf="@+id/guideline50"
-        app:layout_constraintVertical_bias="0.444"
-        app:srcCompat="@drawable/sadface" />
-
-    <ImageButton
-        android:id="@+id/button_verysad"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@null"
-        android:onClick="moodButtonPressed"
-        app:layout_constraintBottom_toTopOf="@+id/guideline60"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_sad"
-        app:layout_constraintTop_toTopOf="@+id/guideline50"
-        app:srcCompat="@drawable/sadsadface" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline50">
+
+        <RadioButton
+            android:id="@+id/button_veryhappy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@drawable/happyhappyface"
+            android:onClick="moodButtonPressed" />
+
+        <RadioButton
+            android:id="@+id/button_happy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@drawable/happyface"
+            android:onClick="moodButtonPressed" />
+
+        <RadioButton
+            android:id="@+id/button_meh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@drawable/nothappynorsadface"
+            android:onClick="moodButtonPressed" />
+
+        <RadioButton
+            android:id="@+id/button_sad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@drawable/sadface"
+            android:onClick="moodButtonPressed" />
+
+        <RadioButton
+            android:id="@+id/button_verysad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@drawable/sadsadface"
+            android:onClick="moodButtonPressed" />
+    </RadioGroup>
 
     <TextView
         android:id="@+id/warningTime"
