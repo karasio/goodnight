@@ -18,9 +18,9 @@ public class DataHandler {
     private boolean cb_special;
     private boolean cb_napping;
     private boolean cb_exercise;
-    private int testiYot; //Kimmon testimuuttuja FeedbackActivitylle
-    private double testiSumma; //Kimmon testimuuttuja FeedbackActivitylle
-    private int testiMoodS; //Kimmon testimuuttuja FeedbackActivitylle
+    private int howManyNights;
+    private double howManyHours;
+    private int moodSum;
 
     // variables for feedback
 
@@ -55,8 +55,6 @@ public class DataHandler {
         this.cb_napping = cb_napping;
         this.cb_exercise = cb_exercise;
 
-        // Add values to  ArrayList
-        nights.add(new Night(time_ToSleep, time_wakeUp, time_slept, mood, cb_special, cb_napping, cb_exercise));
         //DEBUG PRINTING
         Log.d("appi","timeToSleep " + time_ToSleep);
         Log.d("appi", "timeToWakeup " + time_wakeUp);
@@ -70,27 +68,24 @@ public class DataHandler {
         Log.d("appi", "Arraylist: " + nights.toString());
 
         //Kimmon testit
-        testiYot++;
-        Log.d("appi","nights " + testiYot);
-        testiSumma +=time_slept;
-        Log.d("appi", "sleepTimeTotal " + testiSumma);
-        //Kimmon testit FeedbackActivitylle
-        testiMoodS += mood;
-        Log.d("appi", "moodSum " + testiMoodS);
-        //
+        howManyNights++;
+        Log.d("appi","nights " + howManyNights);
+        howManyHours +=time_slept;
+        Log.d("appi", "sleepTimeTotal " + howManyHours);
+        moodSum += mood;
+        Log.d("appi", "moodSum " + moodSum);
     }
 
-    // Kimmon testimetodit FeedbackActivitylle
     public int getYot() {
-        return testiYot;
+
+        return howManyNights;
     }
     public Double getSumma() {
-        return testiSumma;
+        return howManyHours;
     }
     public int getMoodSum () {
-        return testiMoodS;
+        return moodSum;
     }
-    //
 
     public void setSettings(
                             boolean userBedTimeNotification, double time_bedTimeNotification,
@@ -107,21 +102,19 @@ public class DataHandler {
     }
 
     public void setNights(ArrayList<Night> nights) {
+
         this.nights = nights;
     }
 
     public ArrayList<Night> getNights() {
+
         return nights;
     }
 
-    //KATRILLA TYÖN ALLA!    /*ÄLÄ POISTA T: KATRI*/
-    //koska tämän voi toteuttaa? ei toimi tällaisenaan, kun jotta Nightin voisi lisätä arraylistiin,
-    // pitäisi olla kaikissa muuttujissa dataa, eli olla toteutunut setSleepLogging, setMood ja
-    //myös checkboxit.
-
     public void storeData(){
 
-        nights.add(new Night(time_ToSleep, time_wakeUp, time_slept, mood, cb_special, cb_napping, cb_exercise));
+        nights.add(new Night(time_ToSleep, time_wakeUp, time_slept, mood, cb_special, cb_napping, cb_exercise, howManyNights, howManyHours, moodSum));
+        Log.d("appi", "" + nights.toString());
     }
 }
 

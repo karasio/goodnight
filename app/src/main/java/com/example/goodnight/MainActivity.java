@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.google.gson.Gson;
@@ -24,45 +25,19 @@ public class MainActivity extends AppCompatActivity {
     //private static final String PREF = "TestPref"; /*ÄLÄ POISTA T: KATRI*/
     Context context = MainActivity.this; /*ÄLÄ POISTA T: KATRI*/
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        ArrayList<Night> savedNights = new ArrayList<Night>();
-        SharedPreferences mPrefs = context.getSharedPreferences("sleepData", context.MODE_PRIVATE);
-        Gson gson = new Gson();
-        String json = mPrefs.getString("myJson", "");
-        if (json.isEmpty()) {
-            savedNights = new ArrayList<Night>();
-        } else {
-            Type type = new TypeToken<ArrayList<Night>>() {
-            }.getType();
-            savedNights = gson.fromJson(json, type);
-        }
-
-        //Retrieve the values
-//        Gson gson = new Gson();
-//        String jsonText = Prefs.getString("sleepData", null);
-//        String[] text = gson.fromJson(jsonText, String[].class);  //EDIT: gso to gson
-
-        DataHandler.getInstance().setNights(loadNights(context)); /*ÄLÄ POISTA T: KATRI*/
+        loadNights();
+        Log.d("appi", "" + DataHandler.getInstance().getNights());
     }
 
     @Override
     public void onPause() {
         super.onPause();
-
-        ArrayList<Night> nights = DataHandler.getInstance().getNights();
-
-        SharedPreferences mPrefs = context.getSharedPreferences("sleepData", context.MODE_PRIVATE);
-        SharedPreferences.Editor prefsEditor = mPrefs.edit();
-        Gson gson = new Gson();
-        String json = gson.toJson(nights);
-        prefsEditor.putString("myJson", json);
-        prefsEditor.commit();
-
-        //saveNights(context, DataHandler.getInstance().getNights()); /*ÄLÄ POISTA T: KATRI*/
+        saveNights();
     }
 
     public void buttonPressed(View view) {
@@ -79,29 +54,32 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // ARRAYLISTIN TALLENNUS MUISTIIN /*ÄLÄ POISTA T: KATRI*/
-    public static void saveNights(Context context, ArrayList<Night> nights) {
-        SharedPreferences mPrefs = context.getSharedPreferences("sleepData", context.MODE_PRIVATE);
+    public void saveNights() {
+        ArrayList<Night> nights = DataHandler.getInstance().getNights();
+        SharedPreferences mPrefs = getSharedPreferences("sleepData", MODE_PRIVATE);
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         Gson gson = new Gson();
         String json = gson.toJson(nights);
         prefsEditor.putString("myJson", json);
-        prefsEditor.commit();
+        prefsEditor.apply();
+        Log.d("appi", "data saved");
     }
 
     // ARRAYLISTIN HAKU MUISTISTA /*ÄLÄ POISTA T: KATRI*/
-    public static ArrayList<Night> loadNights(Context context) {
+    public void loadNights() {
         ArrayList<Night> savedNights = new ArrayList<Night>();
-        SharedPreferences mPrefs = context.getSharedPreferences("sleepData", context.MODE_PRIVATE);
+        SharedPreferences mPrefs = getSharedPreferences("sleepData", MODE_PRIVATE);
         Gson gson = new Gson();
         String json = mPrefs.getString("myJson", "");
-        if (json.isEmpty()) {
-            savedNights = new ArrayList<Night>();
+        Type type = new TypeToken<ArrayList<Night>>() {
+        }.getType();
+        if (gson.fromJson(json, type) == null) {
+            DataHandler.getInstance().setNights(savedNights);
+            Log.d("appi", "No data saved");
         } else {
-            Type type = new TypeToken<ArrayList<Night>>() {
-            }.getType();
             savedNights = gson.fromJson(json, type);
+            DataHandler.getInstance().setNights(savedNights);
+            Log.d("appi", "data loaded");
         }
-
-        return savedNights;
     }
 }

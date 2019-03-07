@@ -1,6 +1,7 @@
 package com.example.goodnight;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,10 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.TimePicker;
+
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
 
 public class LogActivity extends AppCompatActivity {
     private TimePicker picker1;
@@ -35,8 +40,6 @@ public class LogActivity extends AppCompatActivity {
         picker2 = (TimePicker) findViewById(R.id.timePicker2);
         picker2.setIs24HourView(true);
     }
-
-
 
     // GETTING VALUES WHEN SAVE BUTTON IS PRESSED
     public void saveButtonPressed(View view) {
@@ -79,6 +82,8 @@ public class LogActivity extends AppCompatActivity {
                 tv.setText("Pick the mood!");
             } else {
                 DataHandler.getInstance().setSleepLogging(time1, time2, sleepT, mood, cb_special, cb_napping, cb_exercise);
+                DataHandler.getInstance().storeData();
+                saveNights();
                 finish();
             }
         }
@@ -157,6 +162,17 @@ public class LogActivity extends AppCompatActivity {
         Log.d("logactivity", "timeSlept " + sleepT);
     }
 
+    // ARRAYLISTIN TALLENNUS MUISTIIN /*ÄLÄ POISTA T: KATRI*/
+    public void saveNights() {
+        ArrayList<Night> nights = DataHandler.getInstance().getNights();
+        SharedPreferences mPrefs = getSharedPreferences("sleepData", MODE_PRIVATE);
+        SharedPreferences.Editor prefsEditor = mPrefs.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(nights);
+        prefsEditor.putString("myJson", json);
+        prefsEditor.apply();
+        Log.d("appi", "data saved");
+    }
 
 }
 //Sourcecode for TimePicker: https://www.tutlane.com/tutorial/android/android-timepicker-with-examples

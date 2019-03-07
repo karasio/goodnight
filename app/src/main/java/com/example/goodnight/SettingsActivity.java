@@ -13,6 +13,7 @@ public class SettingsActivity extends AppCompatActivity {
     private TimePicker picker4;
     private boolean cb_sleepTimeNotif;
     private boolean cb_logSleepNotif;
+    private double time1, time2;
 
 
     @Override
@@ -34,15 +35,13 @@ public class SettingsActivity extends AppCompatActivity {
         int hour4 = picker4.getHour();
         int minute4 = picker4.getMinute();
 
+        time1 = hour3 + minute3/60.0;
+        time2 = hour4 + minute4/60.0;
+
+
         if (view.getId() == R.id.button_saveSettings) {
-
-            //DataHandler.getInstance().setSettings();
-
+            DataHandler.getInstance().setSettings(cb_sleepTimeNotif, time1, cb_logSleepNotif, time2);
         }
-    }
-
-    public void defaultSleepingTime () {
-
     }
 
     public void onCheckboxClicked(View view) {

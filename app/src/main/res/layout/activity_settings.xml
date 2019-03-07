@@ -106,7 +106,7 @@
         android:layout_marginBottom="8dp"
         android:backgroundTint="@android:color/holo_red_light"
         android:fontFamily="sans-serif-condensed-light"
-        android:onClick="buttonPressed"
+        android:onClick="saveButtonPressed"
         android:text="@string/button_send"
         app:layout_constraintBottom_toTopOf="@+id/guideline15"
         app:layout_constraintEnd_toEndOf="parent"
