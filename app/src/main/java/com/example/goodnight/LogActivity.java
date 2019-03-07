@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -70,15 +72,18 @@ public class LogActivity extends AppCompatActivity {
 
     // mood button listener
     public void moodButtonPressed(View view) {
-        if (view.getId() == R.id.button_veryhappy) {
+        RadioGroup rGroup = findViewById(R.id.mood_radiogroup);
+        RadioButton checkedRadioButton = rGroup.findViewById(rGroup.getCheckedRadioButtonId());
+        if (checkedRadioButton == findViewById(R.id.button_veryhappy)) {
             mood = 5;
-        } else if (view.getId() == R.id.button_happy) {
+
+        } else if (checkedRadioButton == findViewById(R.id.button_happy)) {
             mood = 4;
-        } else if (view.getId() == R.id.button_meh) {
+        } else if (checkedRadioButton == findViewById(R.id.button_meh)) {
             mood = 3;
-        } else if (view.getId() == R.id.button_sad) {
+        } else if (checkedRadioButton == findViewById(R.id.button_sad)) {
             mood = 2;
-        } else if (view.getId() == R.id.button_verysad) {
+        } else if (checkedRadioButton == findViewById(R.id.button_verysad)) {
             mood = 1;
         }
     }
