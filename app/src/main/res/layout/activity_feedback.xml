@@ -7,7 +7,24 @@
     tools:context=".FeedbackActivity">
 
     <TextView
-        android:id="@+id/header_feedback"
+        android:id="@+id/text_header_averages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/text_averages"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_feedback"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -33,7 +50,6 @@
         android:fontFamily="sans-serif-condensed-light"
         android:text="@string/text_hoursSleptAvg"
         android:textSize="36sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,6 +73,23 @@
         app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
     <TextView
+        android:id="@+id/text_header_best"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/text_best"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />
+
+    <TextView
         android:id="@+id/text_hoursSleepBest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -67,10 +100,10 @@
         android:fontFamily="sans-serif-condensed-light"
         android:text="@string/text_hoursSleptBest"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline6" />
+        app:layout_constraintTop_toTopOf="@+id/guideline7" />
 
     <TextView
         android:id="@+id/text_timeSleptAvgBest"
@@ -81,7 +114,7 @@
         android:fontFamily="sans-serif-condensed-light"
         android:text="@string/text_timeSleptAvgBest"
         app:layout_constraintBaseline_toBaselineOf="@+id/text_hoursSleptAvgBest"
-        app:layout_constraintEnd_toStartOf="@+id/text_hoursSleptAvgBest"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -95,10 +128,10 @@
         android:fontFamily="sans-serif-condensed-light"
         android:text="@string/text_napping"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+        app:layout_constraintBottom_toTopOf="@+id/guideline10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline8" />
+        app:layout_constraintTop_toTopOf="@+id/guideline9" />
 
     <TextView
         android:id="@+id/text_hoursSleptAvgBest"
@@ -111,11 +144,10 @@
         android:fontFamily="sans-serif-condensed-light"
         android:text="@string/text_hoursSleptAvgBest"
         android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guideline8"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text_timeSleptAvgBest"
-        app:layout_constraintTop_toTopOf="@+id/guideline7" />
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/guideline8" />
 
     <TextView
         android:id="@+id/text_exercising"
@@ -128,10 +160,10 @@
         android:fontFamily="sans-serif-condensed-light"
         android:text="@string/text_exercising"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline10"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline9" />
+        app:layout_constraintTop_toTopOf="@+id/guideline10" />
 
     <ImageView
         android:id="@+id/mood"

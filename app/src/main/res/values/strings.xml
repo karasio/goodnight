@@ -38,4 +38,6 @@
     <string name="cb_bedTimeNotif">Bedtime notification?</string>
     <string name="cb_logSleepNotif">Log sleep notification?</string>
     <string name="button_guideForSleep">GUIDE FOR SLEEP</string>
+    <string name="text_averages">Averages</string>
+    <string name="text_best">Best of the best</string>
 </resources>
