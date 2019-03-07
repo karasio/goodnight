@@ -76,7 +76,7 @@ public class DataHandler {
 //        Log.d("appi", "moodSum " + moodSum);
 //    }
 //
-        
+
 //        //Kimmon testit
 //        howManyNights++;
 //        Log.d("appi","nights " + howManyNights);

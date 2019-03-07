@@ -37,4 +37,5 @@
     <string name="time_wakeUpNightDef">00:30</string>
     <string name="cb_bedTimeNotif">Bedtime notification?</string>
     <string name="cb_logSleepNotif">Log sleep notification?</string>
+    <string name="button_guideForSleep">GUIDE FOR SLEEP</string>
 </resources>
