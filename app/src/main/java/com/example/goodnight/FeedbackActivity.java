@@ -25,8 +25,11 @@ public class FeedbackActivity extends AppCompatActivity {
         double howManyHoursWithBestMood = 0;
         boolean cb_exercise;
         int boolExercise = 0;
+        double exerciseAvg = 0;
         boolean cb_napping;
-        int boolNapping = 0;
+        double boolNapping = 0;
+        double nappingAvg = 0;
+
 
         // if there is data in arrayist to show
         if (howManyNights > 0) {
@@ -102,9 +105,9 @@ public class FeedbackActivity extends AppCompatActivity {
             ((TextView) findViewById(R.id.text_hoursSleptAvgBest)).setText(bestHours);
 
             // set text according to booleans for training and napping
-            int exerciseAvg = boolExercise / howManyNightsWithBestMood;
+            exerciseAvg = 1.0 * boolExercise / howManyNightsWithBestMood;
             Log.d("appi", "Exercise " + exerciseAvg);
-            int nappingAvg = boolNapping / howManyNightsWithBestMood;
+            nappingAvg = 1.0 * boolNapping / howManyNightsWithBestMood;
             Log.d("appi", "Napping " + nappingAvg);
             if (exerciseAvg >= 0.5) {
                 ((TextView) findViewById(R.id.text_exercising)).setText("Yay you've been working out!");
