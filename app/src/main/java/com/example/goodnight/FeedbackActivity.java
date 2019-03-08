@@ -20,8 +20,13 @@ public class FeedbackActivity extends AppCompatActivity {
         double moodAvg;
         int moodBest = 0;
         int moodBestIndex = 0;
+        int moodBestSum = 0;
+        int howManyNightsWithBestMood = 0;
+        double howManyHoursWithBestMood = 0;
         boolean cb_exercise;
+        int boolExercise = 0;
         boolean cb_napping;
+        int boolNapping = 0;
 
         // if there is data in arrayist to show
         if (howManyNights > 0) {
@@ -66,29 +71,48 @@ public class FeedbackActivity extends AppCompatActivity {
         }
         // // find out which one is the best night
         else {
+            // find out best mood value
             for (int i = 0; i < howManyNights; i++) {
-                if (DataHandler.getInstance().getNight(i).getMood() > moodBest) {
+                if (DataHandler.getInstance().getNight(i).getMood() >= moodBest) {
                     moodBest = DataHandler.getInstance().getNight(i).getMood();
-                    moodBestIndex = i;
+                    //moodBestIndex = i;
+                }
+            }
+            // find out stats on night with best mood values
+            for (int i = 0; i < howManyNights; i++) {
+                if (DataHandler.getInstance().getNight(i).getMood() == moodBest) {
+                    moodBestSum += DataHandler.getInstance().getNight(i).getMood();
+                    howManyNightsWithBestMood++;
+                    howManyHoursWithBestMood += DataHandler.getInstance().getNight(i).getTime_slept();
+                    if (DataHandler.getInstance().getNight(i).isCb_exercise()) {
+                        boolExercise += 1;
+                    }
+                    if (DataHandler.getInstance().getNight(i).isCb_napping()) {
+                        boolNapping += 1;
+                    }
                 }
             }
 
-            // check booleans for training & napping
-            cb_exercise = DataHandler.getInstance().getNight(moodBestIndex).isCb_exercise();
-            cb_napping = DataHandler.getInstance().getNight(moodBestIndex).isCb_napping();
+//            // check booleans for training & napping
+//            cb_exercise = DataHandler.getInstance().getNight(moodBestIndex).isCb_exercise();
+//            cb_napping = DataHandler.getInstance().getNight(moodBestIndex).isCb_napping();
 
             // set text how many hours slept on best night
-            double best = DataHandler.getInstance().getNight(moodBestIndex).getTime_slept();
+            double best = howManyHoursWithBestMood / howManyNightsWithBestMood;
             String bestHours = String.format("%.2f", best);
             ((TextView) findViewById(R.id.text_hoursSleptAvgBest)).setText(bestHours);
 
             // set text according to booleans for training and napping
-            if (cb_exercise) {
+            int exerciseAvg = boolExercise / howManyNightsWithBestMood;
+            Log.d("appi", "Exercise " + exerciseAvg);
+            int nappingAvg = boolNapping / howManyNightsWithBestMood;
+            Log.d("appi", "Napping " + nappingAvg);
+            if (exerciseAvg >= 0.5) {
                 ((TextView) findViewById(R.id.text_exercising)).setText("Yay you've been working out!");
             } else {
                 ((TextView) findViewById(R.id.text_exercising)).setText("No exercise this time mate.");
             }
-            if (cb_napping) {
+            if (nappingAvg >= 0.5) {
                 ((TextView) findViewById(R.id.text_napping)).setText("You've been napping! Is that wise?");
             } else {
                 ((TextView) findViewById(R.id.text_napping)).setText("No napping, well done you!");

@@ -66,24 +66,6 @@ public class DataHandler {
 
 
         Log.d("appi", "Arraylist: " + nights.toString());
-
-
-//        howManyNights++;
-//        Log.d("appi","nights " + howManyNights);
-//        howManyHours +=time_slept;
-//        Log.d("appi", "sleepTimeTotal " + howManyHours);
-//        moodSum += mood;
-//        Log.d("appi", "moodSum " + moodSum);
-//    }
-//
-
-//        //Kimmon testit
-//        howManyNights++;
-//        Log.d("appi","nights " + howManyNights);
-//        howManyHours +=time_slept;
-//        Log.d("appi", "sleepTimeTotal " + howManyHours);
-//        moodSum += mood;
-//        Log.d("appi", "moodSum " + moodSum);
     }
 
     public void setSettings(
@@ -129,16 +111,6 @@ public class DataHandler {
 
     }
 
-//     public int getYot() {
-//
-//        return howManyNights;
-//    }
-//    public Double getSumma() {
-//        return howManyHours;
-//    }
-//    public int getMoodSum () {
-//        return moodSum;
-//    }
 }
 
 /*
