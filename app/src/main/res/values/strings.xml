@@ -29,7 +29,7 @@
     <string name="text_sleepTimeAvg">Average sleeping time</string>
     <string name="text_hoursSleptAvg">7.5h</string>
     <string name="text_moodAvg">Average mood</string>
-    <string name="text_hoursSleptBest">Best dreams you had when..</string>
+    <string name="text_hoursSleptBest">Best mood rates when..</string>
     <string name="text_timeSleptAvgBest">Sleeping time</string>
     <string name="text_hoursSleptAvgBest">8.0h</string>
     <string name="text_napping">NO napping</string>
