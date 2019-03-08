@@ -18,11 +18,6 @@ public class DataHandler {
     private boolean cb_special;
     private boolean cb_napping;
     private boolean cb_exercise;
-    private int howManyNights;
-    private double howManyHours;
-    private int moodSum;
-
-    // variables for feedback
 
     // variables for settings
     private double timeDef_toSleep;
@@ -31,9 +26,6 @@ public class DataHandler {
     private double time_bedTimeNotification;
     private boolean cb_logSleepNotif;
     private double time_logSleepNotification;
-
-    //variables for data storing
-
 
     // other variables necessary in class
     private static final DataHandler ourInstance = new DataHandler();
@@ -66,24 +58,6 @@ public class DataHandler {
 
 
         Log.d("appi", "Arraylist: " + nights.toString());
-
-
-//        howManyNights++;
-//        Log.d("appi","nights " + howManyNights);
-//        howManyHours +=time_slept;
-//        Log.d("appi", "sleepTimeTotal " + howManyHours);
-//        moodSum += mood;
-//        Log.d("appi", "moodSum " + moodSum);
-//    }
-//
-
-//        //Kimmon testit
-//        howManyNights++;
-//        Log.d("appi","nights " + howManyNights);
-//        howManyHours +=time_slept;
-//        Log.d("appi", "sleepTimeTotal " + howManyHours);
-//        moodSum += mood;
-//        Log.d("appi", "moodSum " + moodSum);
     }
 
     public void setSettings(
@@ -103,12 +77,10 @@ public class DataHandler {
     }
 
     public void setNights(ArrayList<Night> nights) {
-
         this.nights = nights;
     }
 
     public ArrayList<Night> getNights() {
-
         return nights;
     }
 
@@ -126,19 +98,8 @@ public class DataHandler {
     public void eraseNights() {
         ArrayList<Night> emptyNights = new ArrayList<>();
         setNights(emptyNights);
-
     }
 
-//     public int getYot() {
-//
-//        return howManyNights;
-//    }
-//    public Double getSumma() {
-//        return howManyHours;
-//    }
-//    public int getMoodSum () {
-//        return moodSum;
-//    }
 }
 
 /*

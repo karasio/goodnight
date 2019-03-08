@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
     // ARRAYLISTIN TALLENNUS MUISTIIN /*ÄLÄ POISTA T: KATRI*/
     public void saveNights() {
-        ArrayList<Night> nights = DataHandler.getInstance().getNights();
+        ArrayList<Night> nights = DataHandler.getInstance().getNights();        // hae arraylist singletonilta
         SharedPreferences mPrefs = getSharedPreferences("sleepData", MODE_PRIVATE);
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         Gson gson = new Gson();
