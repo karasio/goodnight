@@ -40,4 +40,5 @@
     <string name="button_guideForSleep">GUIDE FOR SLEEP</string>
     <string name="text_averages">Averages</string>
     <string name="text_best">Best of the best</string>
+    <string name="button_reset_all_values">Reset all values</string>
 </resources>

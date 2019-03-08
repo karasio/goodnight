@@ -1,5 +1,6 @@
 package com.example.goodnight;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,6 +8,10 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TimePicker;
+
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
 
 public class SettingsActivity extends AppCompatActivity {
     private TimePicker picker3;
@@ -68,4 +73,25 @@ public class SettingsActivity extends AppCompatActivity {
                 break;
         }
     }
+
+    // ARRAYLISTIN TALLENNUS MUISTIIN /*ÄLÄ POISTA T: KATRI*/
+    public void saveNights() {
+        ArrayList<Night> nights = DataHandler.getInstance().getNights();
+        SharedPreferences mPrefs = getSharedPreferences("sleepData", MODE_PRIVATE);
+        SharedPreferences.Editor prefsEditor = mPrefs.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(nights);
+        prefsEditor.putString("myJson", json);
+        prefsEditor.apply();
+        Log.d("appi", "data saved");
+    }
+
+    public void resetButtonPressed(View view) {
+        DataHandler.getInstance().eraseNights();
+        saveNights();
+        Log.d("appi", "Data erased");
+        finish();
+    }
 }
+
+

@@ -123,6 +123,12 @@ public class DataHandler {
         return night;
     }
 
+    public void eraseNights() {
+        ArrayList<Night> emptyNights = new ArrayList<>();
+        setNights(emptyNights);
+
+    }
+
 //     public int getYot() {
 //
 //        return howManyNights;
