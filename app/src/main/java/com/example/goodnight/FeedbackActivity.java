@@ -24,11 +24,11 @@ public class FeedbackActivity extends AppCompatActivity {
         int howManyNightsWithBestMood = 0;
         double howManyHoursWithBestMood = 0;
         boolean cb_exercise;
-        int boolExercise = 0;
-        double exerciseAvg = 0;
+        double boolExercise = 0;
+        int exerciseAvg = 0;
         boolean cb_napping;
         double boolNapping = 0;
-        double nappingAvg = 0;
+        int nappingAvg = 0;
 
 
         // if there is data in arrayist to show
@@ -100,25 +100,36 @@ public class FeedbackActivity extends AppCompatActivity {
 //            cb_napping = DataHandler.getInstance().getNight(moodBestIndex).isCb_napping();
 
             // set text how many hours slept on best night
-            double best = howManyHoursWithBestMood / howManyNightsWithBestMood;
-            String bestHours = String.format("%.2f", best);
-            ((TextView) findViewById(R.id.text_hoursSleptAvgBest)).setText(bestHours);
+            if (howManyHoursWithBestMood > 0) {
+                double best = howManyHoursWithBestMood / howManyNightsWithBestMood;
+                String bestHours = String.format("%.2f", best);
+                ((TextView) findViewById(R.id.text_hoursSleptAvgBest)).setText(bestHours);
 
-            // set text according to booleans for training and napping
-            exerciseAvg = 1.0 * boolExercise / howManyNightsWithBestMood;
-            Log.d("appi", "Exercise " + exerciseAvg);
-            nappingAvg = 1.0 * boolNapping / howManyNightsWithBestMood;
-            Log.d("appi", "Napping " + nappingAvg);
-            if (exerciseAvg >= 0.5) {
-                ((TextView) findViewById(R.id.text_exercising)).setText("Yay you've been working out!");
+                // set text according to booleans for training and napping
+                exerciseAvg = (int)Math.round((boolExercise / howManyNightsWithBestMood) * 100.0);
+                Log.d("appi", "Exercise " + exerciseAvg);
+                nappingAvg = (int)Math.round((boolNapping / howManyNightsWithBestMood) * 100.0);
+                Log.d("appi", "Napping " + nappingAvg);
+                // int a = (int) Math.round(doubleVar);
+
+                ((TextView) findViewById(R.id.text_napping)).setText(nappingAvg + "% daily napping");
+                ((TextView) findViewById(R.id.text_exercising)).setText(exerciseAvg + "% daily exercising");
             } else {
-                ((TextView) findViewById(R.id.text_exercising)).setText("No exercise this time mate.");
+                ((TextView) findViewById(R.id.text_hoursSleptAvgBest)).setText("0.00");
+                ((TextView) findViewById(R.id.text_napping)).setText("Should you be taking naps? ");
+                ((TextView) findViewById(R.id.text_exercising)).setText("How about some exercise?");
             }
-            if (nappingAvg >= 0.5) {
-                ((TextView) findViewById(R.id.text_napping)).setText("You've been napping! Is that wise?");
-            } else {
-                ((TextView) findViewById(R.id.text_napping)).setText("No napping, well done you!");
-            }
+
+//            if (exerciseAvg >= 0.5) {
+//                ((TextView) findViewById(R.id.text_exercising)).setText("Yay you've been working out!");
+//            } else {
+//                ((TextView) findViewById(R.id.text_exercising)).setText("No exercise this time mate.");
+//            }
+//            if (nappingAvg >= 0.5) {
+//                ((TextView) findViewById(R.id.text_napping)).setText("You've been napping! Is that wise?");
+//            } else {
+//                ((TextView) findViewById(R.id.text_napping)).setText("No napping, well done you!");
+//            }
         }
     }
 }
