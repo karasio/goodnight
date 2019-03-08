@@ -18,11 +18,6 @@ public class DataHandler {
     private boolean cb_special;
     private boolean cb_napping;
     private boolean cb_exercise;
-    private int howManyNights;
-    private double howManyHours;
-    private int moodSum;
-
-    // variables for feedback
 
     // variables for settings
     private double timeDef_toSleep;
@@ -31,9 +26,6 @@ public class DataHandler {
     private double time_bedTimeNotification;
     private boolean cb_logSleepNotif;
     private double time_logSleepNotification;
-
-    //variables for data storing
-
 
     // other variables necessary in class
     private static final DataHandler ourInstance = new DataHandler();
@@ -85,12 +77,10 @@ public class DataHandler {
     }
 
     public void setNights(ArrayList<Night> nights) {
-
         this.nights = nights;
     }
 
     public ArrayList<Night> getNights() {
-
         return nights;
     }
 
@@ -108,7 +98,6 @@ public class DataHandler {
     public void eraseNights() {
         ArrayList<Night> emptyNights = new ArrayList<>();
         setNights(emptyNights);
-
     }
 
 }
