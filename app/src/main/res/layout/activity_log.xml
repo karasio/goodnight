@@ -252,4 +252,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox_exercise" />
 
+    <ImageButton
+        android:id="@+id/infoTry1"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:cropToPadding="false"
+        android:onClick="onButtonShowPopupWindowClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_special"
+        app:layout_constraintVertical_bias="0.595"
+        app:srcCompat="@drawable/infotry4" />
+
 </android.support.constraint.ConstraintLayout>

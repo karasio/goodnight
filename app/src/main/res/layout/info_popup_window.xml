@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#62def8">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="30dp"
+        android:textSize="18sp"
+        android:text="
+-Special situations are for example being drunk or sick.
+                                         -In those cases it is not a useful night to add into our data to find best sleeptime.
+                                         -Any exercise checkbox helps you check if you are doing your exercise too close before bedtime.
+                                         -Naps are generally bad and Naps during the day checkbox helps you keep track of that."
+
+        android:fontFamily="sans-serif-condensed-light"/>
+
+</RelativeLayout>
