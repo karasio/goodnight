@@ -20,8 +20,6 @@ public class DataHandler {
     private boolean cb_exercise;
 
     // variables for settings
-    private double timeDef_toSleep;
-    private double timeDef_wakeUp;
     private boolean cb_bedTimeNotif;
     private double time_bedTimeNotification;
     private boolean cb_logSleepNotif;
@@ -74,6 +72,14 @@ public class DataHandler {
         }
         Log.d("kake", "bedtime " + time_bedTimeNotification + " " + cb_bedTimeNotif);
         Log.d("kake", "logsleep " + time_logSleepNotification + " " + cb_logSleepNotif);
+    }
+
+    public boolean isCb_bedTimeNotif() {
+        return cb_bedTimeNotif;
+    }
+
+    public boolean isCb_logSleepNotif() {
+        return cb_logSleepNotif;
     }
 
     public void setNights(ArrayList<Night> nights) {

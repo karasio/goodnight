@@ -41,4 +41,9 @@
     <string name="text_averages">Averages</string>
     <string name="text_best">Best of the best</string>
     <string name="button_reset_all_values">Reset all values</string>
+    <string name="notification_channel_goodnight">GoodNight Notification Channel</string>
+    <string name="notification_common">GoodNight</string>
+    <string name="notification_bedtime">Bedtime at %1$s</string>
+    <string name="notification_logSleep">Remember to log sleep!</string>
+
 </resources>
