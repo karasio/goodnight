@@ -46,23 +46,23 @@ class NotificationHelper extends ContextWrapper {
         super(context);
 
         // Create the channel object with the unique ID FOLLOWERS_CHANNEL
-        NotificationChannel followersChannel =
+        NotificationChannel goodnightChannel =
                 new NotificationChannel(
                         GOODNIGHT_CHANNEL,
                         getString(R.string.notification_channel_goodnight),
                         NotificationManager.IMPORTANCE_DEFAULT);
 
         // Configure the channel's initial settings
-        followersChannel.setLightColor(Color.GREEN);
-        followersChannel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+        goodnightChannel.setLightColor(Color.GREEN);
+        goodnightChannel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
 
         // Submit the notification channel object to the notification manager
-        getNotificationManager().createNotificationChannel(followersChannel);
+        getNotificationManager().createNotificationChannel(goodnightChannel);
 
     }
 
     /**
-     * Get a follow/un-follow notification
+     * Get a bedtime notification
      *
      * <p>Provide the builder rather than the notification it's self as useful for making
      * notification changes.
@@ -80,7 +80,7 @@ class NotificationHelper extends ContextWrapper {
     }
 
     /**
-     * Get a direct message notification
+     * Get a log sleep notification
      *
      * <p>Provide the builder rather than the notification it's self as useful for making
      * notification changes.
