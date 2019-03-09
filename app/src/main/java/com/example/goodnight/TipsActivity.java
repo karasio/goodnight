@@ -21,7 +21,7 @@ public class TipsActivity extends AppCompatActivity {
 
         lv.setAdapter(new ArrayAdapter<Tip>(
                 this,
-                android.R.layout.simple_list_item_1,
+                R.layout.activity_listview,
                 TipsList.getInstance().getTips())
         );
 

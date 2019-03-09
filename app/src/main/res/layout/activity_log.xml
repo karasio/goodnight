@@ -13,9 +13,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="@string/header_howSleep"
         android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,17 +25,19 @@
     <TextView
         android:id="@+id/text_howSleep"
         android:layout_width="130dp"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="@string/time_bed"
+        android:textAlignment="center"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/text_wakeUp"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintBottom_toTopOf="@+id/guideline30"
+        app:layout_constraintEnd_toStartOf="@+id/timePicker1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header_howSleep" />
+        app:layout_constraintTop_toTopOf="@+id/guideline12" />
 
     <TimePicker
         android:id="@+id/timePicker1"
@@ -48,15 +52,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.564"
         app:layout_constraintStart_toEndOf="@+id/text_howSleep"
-        app:layout_constraintTop_toBottomOf="@+id/header_howSleep" />
+        app:layout_constraintTop_toTopOf="@+id/guideline12" />
 
     <TimePicker
         android:id="@+id/timePicker2"
         android:layout_width="244dp"
         android:layout_height="137dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="8dp"
         android:timePickerMode="spinner"
         app:layout_constraintBottom_toTopOf="@+id/guideline40"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,16 +71,19 @@
     <TextView
         android:id="@+id/text_wakeUp"
         android:layout_width="130dp"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="@string/time_wakeup"
+        android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline40"
+        app:layout_constraintEnd_toStartOf="@+id/timePicker2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_howSleep" />
+        app:layout_constraintTop_toTopOf="@+id/guideline30" />
 
     <TextView
         android:id="@+id/text_moodTracker"
@@ -99,11 +107,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="sans-serif-condensed-light"
         android:onClick="onCheckboxClicked"
         android:text="@string/cb_special"
-        app:layout_constraintBottom_toTopOf="@+id/button_saveLog"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline18"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox_exercise"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline60" />
 
@@ -111,31 +122,43 @@
         android:id="@+id/checkBox_naps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="sans-serif-condensed-light"
         android:onClick="onCheckboxClicked"
         android:text="@string/cbox_nap"
-        app:layout_constraintBaseline_toBaselineOf="@+id/checkBox_exercise"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline18"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/checkBox_exercise" />
+        app:layout_constraintStart_toEndOf="@+id/checkBox_exercise"
+        app:layout_constraintTop_toTopOf="@+id/guideline60" />
 
     <CheckBox
         android:id="@+id/checkBox_exercise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="8dp"
         android:clickable="false"
         android:fontFamily="sans-serif-condensed-light"
         android:onClick="onCheckboxClicked"
         android:text="@string/cbox_exercise"
-        app:layout_constraintBaseline_toBaselineOf="@+id/checkBox_special"
-        app:layout_constraintStart_toEndOf="@+id/checkBox_special" />
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline18"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox_naps"
+        app:layout_constraintStart_toEndOf="@+id/checkBox_special"
+        app:layout_constraintTop_toTopOf="@+id/guideline60" />
 
     <Button
         android:id="@+id/button_saveLog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:backgroundTint="@android:color/holo_orange_light"
@@ -144,8 +167,8 @@
         android:text="@string/button_send"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/infoTry1"
+        app:layout_constraintTop_toTopOf="@+id/guideline18" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline20"
@@ -166,28 +189,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.61" />
+        app:layout_constraintGuide_percent="0.54" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline50"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.65" />
+        app:layout_constraintGuide_percent="0.6" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline60"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.77" />
+        app:layout_constraintGuide_percent="0.73" />
 
     <RadioGroup
         android:id="@+id/mood_radiogroup"
         android:layout_width="399dp"
-        android:layout_height="89dp"
+        android:layout_height="62dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/guideline60"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline50">
@@ -251,5 +278,35 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox_exercise" />
+
+    <ImageButton
+        android:id="@+id/infoTry1"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:cropToPadding="false"
+        android:onClick="onButtonShowPopupWindowClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_saveLog"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline18"
+        app:srcCompat="@drawable/infotry4" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.85" />
 
 </android.support.constraint.ConstraintLayout>

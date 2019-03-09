@@ -10,7 +10,6 @@
     <string name="button_plus">+</string>
     <string name="text_feeling">Rate mood</string>
     <string name="cb_special">Special situation?</string>
-    <string name="cbox_nap">Naps during the day?</string>
     <string name="cbox_exercise">Any exercise?</string>
     <string name="button_send">Save</string>
     <string name="header_settings">Settings</string>
@@ -45,5 +44,6 @@
     <string name="notification_common">GoodNi.. morning!</string>
     <string name="notification_bedtime">Time to get ready for bed!</string>
     <string name="notification_logSleep">Remember to log sleep!</string>
+    <string name="cbox_nap">Any napping?</string>
 
 </resources>
