@@ -25,6 +25,7 @@ public class TipsActivity extends AppCompatActivity {
                 TipsList.getInstance().getTips())
         );
 
+        // opening the activity with descriptions
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

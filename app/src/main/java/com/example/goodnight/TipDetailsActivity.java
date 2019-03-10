@@ -11,6 +11,8 @@ public class TipDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tip_details);
 
+        //retrieving index of the tip; retrieving the name and the description
+
         Bundle b = getIntent().getExtras();
         int i = b.getInt("tipIndex", 0);
 
