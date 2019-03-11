@@ -21,10 +21,11 @@ public class TipsActivity extends AppCompatActivity {
 
         lv.setAdapter(new ArrayAdapter<Tip>(
                 this,
-                android.R.layout.simple_list_item_1,
+                R.layout.activity_listview,
                 TipsList.getInstance().getTips())
         );
 
+        // opening the activity with descriptions
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
