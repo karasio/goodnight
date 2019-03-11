@@ -1,33 +1,17 @@
 package com.example.goodnight;
 
-import android.app.AlarmManager;
 import android.app.Notification;
-import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.icu.util.Calendar;
-import android.preference.PreferenceManager;
-import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.TimePicker;
-import android.widget.Toast;
 import com.google.gson.Gson;
-
-import java.sql.Time;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
-
 
 public class SettingsActivity extends AppCompatActivity {
     private TimePicker picker3;
@@ -44,8 +28,8 @@ public class SettingsActivity extends AppCompatActivity {
     private Timer timer;
     private TimerTask taskBedtime;
     private TimerTask taskLogSleep;
-    //private long day = 86400000;            // 24h in milliseconds
-    private long day = 10000;                // debug toistoaika
+    private long day = 86400000;            // 24h in milliseconds
+    //private long day = 10000;                // debug toistoaika
     private long bedTimeinMillis;
     private long logSleepInMillis;
     private int time1inMinutes = 0;
@@ -67,38 +51,31 @@ public class SettingsActivity extends AppCompatActivity {
         hoursNow = picker3.getHour();
         minutesNow = picker3.getMinute();
 
+        //find notificationtimes from memory
         loadNotificationTimes();
         Log.d("notski", "bedtime in minutes " + time1inMinutes + " logsleepinMinutes " + time2inMinutes);
 
-        if (time1inMinutes > 0) {
-
-//             CheckBox checkBox1 = (CheckBox) findViewById(R.id.checkBox_bedtimeNotif);
-//            checkBox1.setChecked(cb_sleepTimeNotif);
-            Log.d("notski", "BT " + cb_sleepTimeNotif);
-            //notificationAtCertainTime();
-        }
-        if (time2inMinutes > 0) {
-//            CheckBox checkBox2 = (CheckBox) findViewById(R.id.checkBox_bedtimeNotif);
-//            checkBox2.setChecked(cb_logSleepNotif);
-            Log.d("notski", "LS " + cb_logSleepNotif);
-            //notificationAtCertainTime();
-        }
-
-
-
+//        if (time1inMinutes > 0) {
+//            Log.d("notski", "BT " + cb_sleepTimeNotif);
+//            notificationAtCertainTime();
+//        }
+//        if (time2inMinutes > 0) {
+//            Log.d("notski", "LS " + cb_logSleepNotif);
+//            notificationAtCertainTime();
+//        }
+        // create necessary objects for notifications
         mNotificationHelper = new NotificationHelper(this);
         timer = new Timer();
-
-        //mUIModel = new MainUi(findViewById(R.id.activity_settings));
     }
 
     public void saveButtonPressed(View view) {
+        // get user input according to checkbox booleans
 
         if(cb_sleepTimeNotif) {
             // get notification time for bedtime
             hour3 = picker3.getHour();
             minute3 = picker3.getMinute();
-            // convert to double in hours & minutes
+            // convert given time values to double in hours & minutes
             time1 = hour3 + minute3/60.0;
             time1inMinutes = hour3 * 60 + minute3;
         }
@@ -106,15 +83,15 @@ public class SettingsActivity extends AppCompatActivity {
             // get notification time for log sleep
             hour4 = picker4.getHour();
             minute4 = picker4.getMinute();
-            // convert to double in hours & minutes
+            // convert given time values to double in hours & minutes
             time2 = hour4 + minute4 / 60.0;
             time2inMinutes = hour4 * 60 + minute4;
         }
 
-        // once button is pressed
+        // once save button is pressed
         if (view.getId() == R.id.button_saveSettings) {
 
-            // set up notifications
+            // set up notifications & save notification times permanently
             if (cb_sleepTimeNotif || cb_logSleepNotif) {
                 notificationAtCertainTime();
                 saveNotificationTimes();
@@ -137,31 +114,32 @@ public class SettingsActivity extends AppCompatActivity {
                     cb_sleepTimeNotif = true;
                     Log.d("notski", "cb_bedtime true");
                 }
-                if (!checked){
+                else {
                     cb_sleepTimeNotif = false;
-                    Log.d("notski", "cb_bedtime false");
-                    taskBedtime.cancel();
-                    Log.d("notski", "bt notif cancelled");
-                    saveNotificationTimes();
-
+//                    Log.d("notski", "cb_bedtime false");
+//                    taskBedtime.cancel();
+//                    Log.d("notski", "bt notif cancelled");
+//                    saveNotificationTimes();
                 }
                 break;
+
             case R.id.checkBox_logSleepNotif:
                 if (checked) {
                     cb_logSleepNotif = true;
                     Log.d("notski", "cb_logSleep true");
                 }
-                if (!checked) {
+                else {
                     cb_logSleepNotif = false;
-                    Log.d("notski", "cb_logSleep false");
-                    taskLogSleep.cancel();
-                    Log.d("notski", "bt notif cancelled");
-                    saveNotificationTimes();
+//                    Log.d("notski", "cb_logSleep false");
+//                    taskLogSleep.cancel();
+//                    Log.d("notski", "bt notif cancelled");
+//                    saveNotificationTimes();
                 }
                 break;
         }
     }
 
+    // get notification time&boolean values from SharedPreferences
     public void loadNotificationTimes() {
         SharedPreferences prefGet = getSharedPreferences("notificationValues", MODE_PRIVATE);
         time1inMinutes = prefGet.getInt("sleepNotif", 0);
@@ -172,6 +150,7 @@ public class SettingsActivity extends AppCompatActivity {
         logSleepInMillis = prefGet.getLong("LSinMillis", 0);
     }
 
+    // save notification time & boolean values to SharedPreferences
     public void saveNotificationTimes() {
         SharedPreferences prefPut = getSharedPreferences("notificationValues", MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = prefPut.edit();
@@ -185,7 +164,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     }
 
-    // saving method for reset button (only used to store empty arraylist)
+    // saving method for reset button (only used to store empty arraylist to SharedPreferences)
     public void saveNights() {
         ArrayList<Night> nights = DataHandler.getInstance().getNights();
         SharedPreferences mPrefs = getSharedPreferences("sleepData", MODE_PRIVATE);
@@ -197,6 +176,7 @@ public class SettingsActivity extends AppCompatActivity {
         Log.d("appi", "data saved");
     }
 
+    // erase ArrayList & reset values of instance variables & save default values to SharedPreferences
     public void resetButtonPressed(View view) {
         DataHandler.getInstance().eraseNights();
         saveNights();
@@ -253,7 +233,6 @@ public class SettingsActivity extends AppCompatActivity {
             }
             bedTimeinMillis = whenToNotify;
             Log.d("notski", "BD notif time calculated " + bedTimeinMillis);
-
         }
 
         if (cb_logSleepNotif) {
@@ -264,7 +243,6 @@ public class SettingsActivity extends AppCompatActivity {
             }
             logSleepInMillis = whenToNotify;
             Log.d("notski", "LS notif time calculated");
-
         }
     }
 

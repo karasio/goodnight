@@ -1,37 +1,18 @@
 package com.example.goodnight;
 
-import android.app.AlarmManager;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.provider.ContactsContract;
-import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
-import android.widget.Toast;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     Intent intent;
-    SharedPreferences prefPut;
-    SharedPreferences Prefs;
-    SharedPreferences.Editor prefsEditor;
-    SharedPreferences prefGet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         saveNights();
     }
 
+    // open activities according to which button was pressed
     public void buttonPressed(View view) {
         if (view.getId() == R.id.button_settings) {
             intent = new Intent(this, SettingsActivity.class);

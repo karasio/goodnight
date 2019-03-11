@@ -1,22 +1,16 @@
 package com.example.goodnight;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.TimePicker;
-
 import com.google.gson.Gson;
-
 import java.util.ArrayList;
 
 public class LogActivity extends AppCompatActivity {
@@ -50,10 +44,6 @@ public class LogActivity extends AppCompatActivity {
 
         int hour2 = picker2.getHour();
         int minute2 = picker2.getMinute();
-
-        //double sleepT; //duration of the sleep
-        //double time1=hour1 + minute1/60.0;
-        //double time2=hour2 + minute2/60.0;
 
         time1 = hour1 + minute1/60.0;
         time2 = hour2 + minute2/60.0;
@@ -95,7 +85,6 @@ public class LogActivity extends AppCompatActivity {
         RadioButton checkedRadioButton = rGroup.findViewById(rGroup.getCheckedRadioButtonId());
         if (checkedRadioButton == findViewById(R.id.button_veryhappy)) {
             mood = 5;
-
         } else if (checkedRadioButton == findViewById(R.id.button_happy)) {
             mood = 4;
         } else if (checkedRadioButton == findViewById(R.id.button_meh)) {
@@ -136,30 +125,6 @@ public class LogActivity extends AppCompatActivity {
                 }
                 break;
         }
-    }
-
-    // counting sleeping time
-
-    // SIIRSIN TÄMÄN TOIMINALLISUUDEN SAVEBUTTONPRESSEDIIN //KR
-    public void sleepingTime(View view) {
-        int hour1 = picker1.getHour();
-        int minute1= picker1.getMinute();
-
-        int hour2 = picker2.getHour();
-        int minute2 = picker2.getMinute();
-
-        //double sleepT; //duration of the sleep
-        //double time1=hour1 + minute1/60.0;
-        //double time2=hour2 + minute2/60.0;
-
-        if (hour1>hour2 || (hour1==hour2 && minute1>minute2)) {
-            sleepT=(24.0-time1)+time2;
-        } else {
-            sleepT=time2-time1;
-        }
-        Log.d("logactivity","time1 " + time1);
-        Log.d("logactivity", "time2 " + time2);
-        Log.d("logactivity", "timeSlept " + sleepT);
     }
 
     // ARRAYLISTIN TALLENNUS MUISTIIN /*ÄLÄ POISTA T: KATRI*/

@@ -19,20 +19,11 @@ package com.example.goodnight;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.ContextWrapper;
-import android.content.Intent;
 import android.graphics.Color;
 
-import com.example.goodnight.MainActivity;
-import com.example.goodnight.R;
-import com.example.goodnight.SettingsActivity;
-
-import java.util.Random;
-
-/** Helper class to manage notification channels, and create notifications. */
+/** Class to manage notification channels, and create notifications. */
 class NotificationHelper extends ContextWrapper {
     private NotificationManager mNotificationManager;
     public static final String GOODNIGHT_CHANNEL = "goodnight";
@@ -64,9 +55,6 @@ class NotificationHelper extends ContextWrapper {
     /**
      * Get a bedtime notification
      *
-     * <p>Provide the builder rather than the notification it's self as useful for making
-     * notification changes.
-     *
      * @param title the title of the notification
      * @param body the body text for the notification
      * @return A Notification.Builder configured with the selected channel and details
@@ -82,9 +70,6 @@ class NotificationHelper extends ContextWrapper {
     /**
      * Get a log sleep notification
      *
-     * <p>Provide the builder rather than the notification it's self as useful for making
-     * notification changes.
-     *
      * @param title Title for notification.
      * @param body Message for notification.
      * @return A Notification.Builder configured with the selected channel and details
@@ -95,26 +80,6 @@ class NotificationHelper extends ContextWrapper {
                 .setContentText(body)
                 .setSmallIcon(getSmallIcon())
                 .setAutoCancel(true);
-    }
-
-    /**
-     * Create a PendingIntent for opening up the MainActivity when the notification is pressed
-     *
-     * @return A PendingIntent that opens the MainActivity
-     */
-    private PendingIntent getPendingIntent() {
-        Intent openMainIntent = new Intent(this, SettingsActivity.class);
-
-        // The stack builder object will contain an artificial back stack for the
-        // started Activity.
-        // This ensures that navigating backward from the Activity leads out of
-        // your application to the Home screen.
-        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
-        // Adds the back stack for the Intent (but not the Intent itself)
-        stackBuilder.addParentStack(SettingsActivity.class);
-        // Adds the Intent that starts the Activity to the top of the stack
-        stackBuilder.addNextIntent(openMainIntent);
-        return stackBuilder.getPendingIntent(0, PendingIntent.FLAG_ONE_SHOT);
     }
 
     /**
@@ -134,7 +99,7 @@ class NotificationHelper extends ContextWrapper {
      */
     private int getSmallIcon() {
 
-        return android.R.drawable.stat_notify_chat;
+        return android.R.drawable.btn_star;
     }
 
     /**
@@ -152,3 +117,5 @@ class NotificationHelper extends ContextWrapper {
         return mNotificationManager;
     }
 }
+
+// https://github.com/googlecodelabs/notification-channels-java used as a reference for setting up notifications
