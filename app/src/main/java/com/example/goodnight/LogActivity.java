@@ -22,12 +22,9 @@ public class LogActivity extends AppCompatActivity {
     private TimePicker picker1;
     private TimePicker picker2;
     private int mood;
-    double sleepT;
-    double time1;
-    double time2;
-    boolean cb_special = false;
-    boolean cb_napping = false;
-    boolean cb_exercise = false;
+    private boolean cb_special = false;
+    private boolean cb_napping = false;
+    private boolean cb_exercise = false;
 
 
     @Override
@@ -44,25 +41,26 @@ public class LogActivity extends AppCompatActivity {
     public void saveButtonPressed(View view) {
         TextView tv = (TextView)findViewById(R.id.warningTime);
         // getting time values from time pickers
-        int hour1 = picker1.getHour();
-        int minute1= picker1.getMinute();
+        int hourTimeSleep = picker1.getHour();
+        int minuteTimeSleep= picker1.getMinute();
 
-        int hour2 = picker2.getHour();
-        int minute2 = picker2.getMinute();
+        int hourWakeUp = picker2.getHour();
+        int minuteWakeUp = picker2.getMinute();
 
-        time1 = hour1 + minute1/60.0;
-        time2 = hour2 + minute2/60.0;
+        double time1 = hourTimeSleep + minuteTimeSleep / 60.0;
+        double time2 = hourWakeUp + minuteWakeUp / 60.0;
 
-        if (hour1>hour2 || (hour1==hour2 && minute1>minute2)) {
-            sleepT=(24.0-time1)+time2;
+        double timeSlept;
+        if (hourTimeSleep>hourWakeUp || (hourTimeSleep==hourWakeUp && minuteTimeSleep>minuteWakeUp)) {
+            timeSlept =(24.0- time1)+ time2;
         } else {
-            sleepT=time2-time1;
+            timeSlept = time2 - time1;
         }
 
         //Debug printing
         Log.d("logactivity","time1 " + time1);
         Log.d("logactivity", "time2 " + time2);
-        Log.d("logactivity", "timeSlept " + sleepT);
+        Log.d("logactivity", "timeSlept " + timeSlept);
         Log.d("logactivity", "mood  " + mood);
         Log.d("logactivity", "cb special " + cb_special);
         Log.d("logactivity", "cb_napping " + cb_napping);
@@ -76,7 +74,7 @@ public class LogActivity extends AppCompatActivity {
             } else if (mood == 0) {
                 tv.setText("Pick the mood!");
             } else {
-                DataHandler.getInstance().setSleepLogging(time1, time2, sleepT, mood, cb_special, cb_napping, cb_exercise);
+                DataHandler.getInstance().setSleepLogging(time1, time2, timeSlept, mood, cb_special, cb_napping, cb_exercise);
                 DataHandler.getInstance().storeData();
                 saveNights();
                 finish();
@@ -158,7 +156,7 @@ public class LogActivity extends AppCompatActivity {
     }
 
     // ARRAYLISTIN TALLENNUS MUISTIIN /*ÄLÄ POISTA T: KATRI*/
-    public void saveNights() {
+    private void saveNights() {
         ArrayList<Night> nights = DataHandler.getInstance().getNights();
         SharedPreferences mPrefs = getSharedPreferences("sleepData", MODE_PRIVATE);
         SharedPreferences.Editor prefsEditor = mPrefs.edit();

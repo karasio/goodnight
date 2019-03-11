@@ -15,9 +15,7 @@ public class DataHandler {
 
     // variables for settings
     private boolean cb_bedTimeNotif;
-    private double time_bedTimeNotification;
     private boolean cb_logSleepNotif;
-    private double time_logSleepNotification;
 
     // other variables necessary in class
     private static final DataHandler ourInstance = new DataHandler();
@@ -59,11 +57,11 @@ public class DataHandler {
 
         if (userBedTimeNotification) {
             this.cb_bedTimeNotif = true;
-            this.time_bedTimeNotification = time_bedTimeNotification;
+            double time_bedTimeNotification1 = time_bedTimeNotification;
         }
         if (userLogSleepNotification) {
             this.cb_logSleepNotif = true;
-            this.time_logSleepNotification = time_logSleepNotification;
+            double time_logSleepNotification1 = time_logSleepNotification;
         }
         Log.d("kake", "bedtime " + time_bedTimeNotification + " " + cb_bedTimeNotif);
         Log.d("kake", "logsleep " + time_logSleepNotification + " " + cb_logSleepNotif);

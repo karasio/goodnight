@@ -5,26 +5,13 @@
     <string name="button_log">How did you sleep?</string>
     <string name="header_howSleep">How did you sleep?</string>
     <string name="time_bed">Bedtime?</string>
-    <string name="time_wakeup">Wake up time?</string>
-    <string name="wakeUpNight">Awake at night?</string>
-    <string name="button_plus">+</string>
     <string name="text_feeling">Rate mood</string>
     <string name="cb_special">Special situation?</string>
     <string name="cbox_exercise">Any exercise?</string>
     <string name="button_send">Save</string>
     <string name="header_settings">Settings</string>
-    <string name="text_defSleep">Start sleeping at</string>
-    <string name="text_defWake">Wake up at</string>
-    <string name="button_toggle">OFF</string>
-    <string name="toggle_button2">OFF</string>
-    <string name="text_remSleep">Bedtime notification</string>
     <string name="text_whenNotifSleep">Bedtime notification at</string>
-    <string name="text_remLog">Log sleeping daily?</string>
     <string name="text_notifLogSleep">Log sleep at</string>
-    <string name="time_sleepDef">22:00</string>
-    <string name="time_wakeDef">06:30</string>
-    <string name="time_sleepRemDef">21:15</string>
-    <string name="time_logRemDef">6:45</string>
     <string name="text_sleepTimeAvg">Average sleeping time</string>
     <string name="text_hoursSleptAvg">7.5h</string>
     <string name="text_moodAvg">Average mood</string>
@@ -33,7 +20,6 @@
     <string name="text_hoursSleptAvgBest">8.0h</string>
     <string name="text_napping">NO napping</string>
     <string name="text_exercising">YES exercising</string>
-    <string name="time_wakeUpNightDef">00:30</string>
     <string name="cb_bedTimeNotif">Bedtime notification?</string>
     <string name="cb_logSleepNotif">Log sleep notification?</string>
     <string name="button_guideForSleep">GUIDE FOR SLEEP</string>
@@ -45,5 +31,8 @@
     <string name="notification_bedtime">Time to get ready for bed!</string>
     <string name="notification_logSleep">Remember to log sleep!</string>
     <string name="cbox_nap">Any napping?</string>
+    <string name="sbgtdhbhd">sbgtdhbhd</string>
+    <string name="infobox_texts">-Checkbox \'special situation\' should be used when sleeping while sick or drunk. Feedback is calculated differently with this option. -Sleepwise it is best to exercise at least 2 hours before going to bed. Check \'Any exercise?\' if you have exercised. -Checkbox \'Any napping?\' is for when you\'ve taken a nap during day.</string>
+    <string name="time_wakeup">Wake up time?</string>
 
 </resources>

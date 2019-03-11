@@ -12,7 +12,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    Intent intent;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Saving data to memory
-    public void saveNights() {
+    private void saveNights() {
         ArrayList<Night> nights = DataHandler.getInstance().getNights();        // hae arraylist singletonilta
         SharedPreferences mPrefs = getSharedPreferences("sleepData", MODE_PRIVATE);
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Loading data from memory
-    public void loadNights() {
+    private void loadNights() {
         ArrayList<Night> savedNights = new ArrayList<Night>();
         SharedPreferences mPrefs = getSharedPreferences("sleepData", MODE_PRIVATE);
         Gson gson = new Gson();

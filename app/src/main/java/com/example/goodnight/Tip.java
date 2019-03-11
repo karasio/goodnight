@@ -1,8 +1,8 @@
 package com.example.goodnight;
 
 public class Tip {
-    private String name;
-    private String description;
+    private final String name;
+    private final String description;
 
     public Tip (String name, String description) {
         this.name = name;

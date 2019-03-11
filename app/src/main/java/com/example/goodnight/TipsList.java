@@ -3,7 +3,7 @@ package com.example.goodnight;
 import java.util.ArrayList;
 
 public class TipsList {
-    private ArrayList<Tip> tips;
+    private final ArrayList<Tip> tips;
     private static final TipsList ourInstance = new TipsList();
 
     public static TipsList getInstance() {

@@ -1,19 +1,3 @@
-/*
- * Copyright 2017 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.example.goodnight;
 
 import android.app.Notification;
@@ -24,16 +8,16 @@ import android.content.ContextWrapper;
 import android.graphics.Color;
 
 /** Class to manage notification channels, and create notifications. */
-class NotificationHelper extends ContextWrapper {
+class Notifications extends ContextWrapper {
     private NotificationManager mNotificationManager;
     public static final String GOODNIGHT_CHANNEL = "goodnight";
 
     /**
-     * Registers notification channels, which can be used later by individual notifications.
+     * Create notification channel for app
      *
      * @param context The application context
      */
-    public NotificationHelper(Context context) {
+    public Notifications(Context context) {
         super(context);
 
         // Create the channel object with the unique ID FOLLOWERS_CHANNEL
@@ -44,16 +28,15 @@ class NotificationHelper extends ContextWrapper {
                         NotificationManager.IMPORTANCE_DEFAULT);
 
         // Configure the channel's initial settings
-        goodnightChannel.setLightColor(Color.GREEN);
+        goodnightChannel.setLightColor(Color.RED);
         goodnightChannel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
 
         // Submit the notification channel object to the notification manager
         getNotificationManager().createNotificationChannel(goodnightChannel);
-
     }
 
     /**
-     * Get a bedtime notification
+     * Build a bedtime notification
      *
      * @param title the title of the notification
      * @param body the body text for the notification
@@ -63,12 +46,12 @@ class NotificationHelper extends ContextWrapper {
         return new Notification.Builder(getApplicationContext(), GOODNIGHT_CHANNEL)
                 .setContentTitle(title)
                 .setContentText(body)
-                .setSmallIcon(getSmallIcon())
+                .setSmallIcon(getIcon())
                 .setAutoCancel(true);
     }
 
     /**
-     * Get a log sleep notification
+     * Build a log sleep notification
      *
      * @param title Title for notification.
      * @param body Message for notification.
@@ -78,7 +61,7 @@ class NotificationHelper extends ContextWrapper {
         return new Notification.Builder(getApplicationContext(), GOODNIGHT_CHANNEL)
                 .setContentTitle(title)
                 .setContentText(body)
-                .setSmallIcon(getSmallIcon())
+                .setSmallIcon(getIcon())
                 .setAutoCancel(true);
     }
 
@@ -93,11 +76,11 @@ class NotificationHelper extends ContextWrapper {
     }
 
     /**
-     * Get the small icon for this app
+     * Define app icon in notification
      *
      * @return The small icon resource id
      */
-    private int getSmallIcon() {
+    private int getIcon() {
 
         return android.R.drawable.btn_star;
     }
@@ -118,4 +101,4 @@ class NotificationHelper extends ContextWrapper {
     }
 }
 
-// https://github.com/googlecodelabs/notification-channels-java used as a reference for setting up notifications
+// modified from https://github.com/googlecodelabs/notification-channels-java
