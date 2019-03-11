@@ -1,12 +1,6 @@
 package com.example.goodnight;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.util.Log;
-import android.view.ViewDebug;
-
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class DataHandler {
@@ -29,6 +23,7 @@ public class DataHandler {
     private static final DataHandler ourInstance = new DataHandler();
     private ArrayList<Night> nights = new ArrayList<>();
 
+    //constructor for singleton class
     private DataHandler() {
     }
 
@@ -74,14 +69,6 @@ public class DataHandler {
         Log.d("kake", "logsleep " + time_logSleepNotification + " " + cb_logSleepNotif);
     }
 
-    public boolean isCb_bedTimeNotif() {
-        return cb_bedTimeNotif;
-    }
-
-    public boolean isCb_logSleepNotif() {
-        return cb_logSleepNotif;
-    }
-
     public void setNights(ArrayList<Night> nights) {
         this.nights = nights;
     }
@@ -90,6 +77,7 @@ public class DataHandler {
         return nights;
     }
 
+    // add values from LogSleep activity to ArrayList
     public void storeData(){
 
         nights.add(new Night(time_ToSleep, time_wakeUp, time_slept, mood, cb_special, cb_napping, cb_exercise));
@@ -105,13 +93,4 @@ public class DataHandler {
         ArrayList<Night> emptyNights = new ArrayList<>();
         setNights(emptyNights);
     }
-
 }
-
-/*
-		SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
-		Date date1 = format.parse(time1);
-		Date date2 = format.parse(time2);
-		long difference = date2.getTime() - date1.getTime();
-		System.out.println(difference/1000);
- */
