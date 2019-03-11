@@ -14,8 +14,8 @@
         android:text="
 -Checkbox 'special situation' should be used when sleeping while sick or drunk.
                                           Feedback is calculated differently with this option.
-                                         -Sleepwise it is best to exercise at least 2 hours before going to bed. Check 'Any exercise' if you have exercised.
-                                         -Checkbox 'napping' is for when you've taken a nap during day."
+                                         -Sleepwise it is best to exercise at least 2 hours before going to bed. Check 'Any exercise?' if you have exercised.
+                                         -Checkbox 'Any napping?' is for when you've taken a nap during day."
 
         android:fontFamily="sans-serif-condensed-light"/>
 
