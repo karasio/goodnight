@@ -14,27 +14,25 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class SettingsActivity extends AppCompatActivity {
-    private TimePicker picker3;
-    private TimePicker picker4;
+    // variables for activity_settings.xml and calculations
+    private TimePicker pickerBedtime;
+    private TimePicker pickerLogSleepTime;
     private boolean cb_sleepTimeNotif;
     private boolean cb_logSleepNotif;
-    private double time1, time2;
-    private int hour3, hour4, minute3, minute4;
+    private double bedTimeInHours, logSleepTimeinHours;
 
     //Notification variables
-    private int notification_logSleep = 1100;
-    private int notification_bedtime = 1101;
-    private NotificationHelper mNotificationHelper;
+    private final int notification_logSleep = 1100;
+    private final int notification_bedtime = 1101;
+    private Notifications mNotificationHelper;
     private Timer timer;
     private TimerTask taskBedtime;
     private TimerTask taskLogSleep;
-    private long day = 86400000;            // 24h in milliseconds
     //private long day = 10000;                // debug toistoaika
     private long bedTimeinMillis;
     private long logSleepInMillis;
-    private int time1inMinutes = 0;
-    private int time2inMinutes = 0;
-    private int whenToNotify;
+    private int bedtimeInMinutes = 0;
+    private int logSleepTimeInMinutes = 0;
     private int hoursNow;
     private int minutesNow;
 
@@ -42,29 +40,29 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        picker3 = (TimePicker) findViewById(R.id.timePicker3);
-        picker3.setIs24HourView(true);
-        picker4 = (TimePicker) findViewById(R.id.timePicker4);
-        picker4.setIs24HourView(true);
+        pickerBedtime = (TimePicker) findViewById(R.id.timePicker3);
+        pickerBedtime.setIs24HourView(true);
+        pickerLogSleepTime = (TimePicker) findViewById(R.id.timePicker4);
+        pickerLogSleepTime.setIs24HourView(true);
 
         // get current time
-        hoursNow = picker3.getHour();
-        minutesNow = picker3.getMinute();
+        hoursNow = pickerBedtime.getHour();
+        minutesNow = pickerBedtime.getMinute();
 
         //find notificationtimes from memory
         loadNotificationTimes();
-        Log.d("notski", "bedtime in minutes " + time1inMinutes + " logsleepinMinutes " + time2inMinutes);
+        Log.d("notski", "bedtime in minutes " + bedtimeInMinutes + " logsleepinMinutes " + logSleepTimeInMinutes);
 
-//        if (time1inMinutes > 0) {
+//        if (bedtimeInMinutes > 0) {
 //            Log.d("notski", "BT " + cb_sleepTimeNotif);
 //            notificationAtCertainTime();
 //        }
-//        if (time2inMinutes > 0) {
+//        if (logSleepTimeInMinutes > 0) {
 //            Log.d("notski", "LS " + cb_logSleepNotif);
 //            notificationAtCertainTime();
 //        }
         // create necessary objects for notifications
-        mNotificationHelper = new NotificationHelper(this);
+        mNotificationHelper = new Notifications(this);
         timer = new Timer();
     }
 
@@ -73,19 +71,19 @@ public class SettingsActivity extends AppCompatActivity {
 
         if(cb_sleepTimeNotif) {
             // get notification time for bedtime
-            hour3 = picker3.getHour();
-            minute3 = picker3.getMinute();
+            int hourBedtime = pickerBedtime.getHour();
+            int minuteBedtime = pickerBedtime.getMinute();
             // convert given time values to double in hours & minutes
-            time1 = hour3 + minute3/60.0;
-            time1inMinutes = hour3 * 60 + minute3;
+            bedTimeInHours = hourBedtime + minuteBedtime /60.0;
+            bedtimeInMinutes = hourBedtime * 60 + minuteBedtime;
         }
         if (cb_logSleepNotif) {
             // get notification time for log sleep
-            hour4 = picker4.getHour();
-            minute4 = picker4.getMinute();
+            int hourLogSleepTime = pickerLogSleepTime.getHour();
+            int minuteLogSleepTime = pickerLogSleepTime.getMinute();
             // convert given time values to double in hours & minutes
-            time2 = hour4 + minute4 / 60.0;
-            time2inMinutes = hour4 * 60 + minute4;
+            logSleepTimeinHours = hourLogSleepTime + minuteLogSleepTime / 60.0;
+            logSleepTimeInMinutes = hourLogSleepTime * 60 + minuteLogSleepTime;
         }
 
         // once save button is pressed
@@ -98,7 +96,7 @@ public class SettingsActivity extends AppCompatActivity {
             }
 
             // pass data to DataHandler and finish activity
-            DataHandler.getInstance().setSettings(cb_sleepTimeNotif, time1, cb_logSleepNotif, time2);
+            DataHandler.getInstance().setSettings(cb_sleepTimeNotif, bedTimeInHours, cb_logSleepNotif, logSleepTimeinHours);
             finish();
         }
     }
@@ -140,32 +138,32 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     // get notification time&boolean values from SharedPreferences
-    public void loadNotificationTimes() {
+    private void loadNotificationTimes() {
         SharedPreferences prefGet = getSharedPreferences("notificationValues", MODE_PRIVATE);
-        time1inMinutes = prefGet.getInt("sleepNotif", 0);
+        bedtimeInMinutes = prefGet.getInt("sleepNotif", 0);
         cb_sleepTimeNotif = prefGet.getBoolean("cbSleepNotif", false);
         bedTimeinMillis = prefGet.getLong("BTinMillis", 0);
-        time2inMinutes = prefGet.getInt("logSleepNotif", 0);
+        logSleepTimeInMinutes = prefGet.getInt("logSleepNotif", 0);
         cb_logSleepNotif = prefGet.getBoolean("cbLogSleep", false);
         logSleepInMillis = prefGet.getLong("LSinMillis", 0);
     }
 
     // save notification time & boolean values to SharedPreferences
-    public void saveNotificationTimes() {
+    private void saveNotificationTimes() {
         SharedPreferences prefPut = getSharedPreferences("notificationValues", MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = prefPut.edit();
-        prefEditor.putInt("sleepNotif", time1inMinutes);
+        prefEditor.putInt("sleepNotif", bedtimeInMinutes);
         prefEditor.putBoolean("cbSleepNotif", cb_sleepTimeNotif);
         prefEditor.putLong("BTinMillis", bedTimeinMillis);
-        prefEditor.putInt("logSleepNotif", time2inMinutes);
+        prefEditor.putInt("logSleepNotif", logSleepTimeInMinutes);
         prefEditor.putBoolean("cbLogSleep", cb_logSleepNotif);
         prefEditor.putLong("LSinMillis", logSleepInMillis);
-        prefEditor.commit();
+        prefEditor.apply();
 
     }
 
     // saving method for reset button (only used to store empty arraylist to SharedPreferences)
-    public void saveNights() {
+    private void saveNights() {
         ArrayList<Night> nights = DataHandler.getInstance().getNights();
         SharedPreferences mPrefs = getSharedPreferences("sleepData", MODE_PRIVATE);
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
@@ -180,8 +178,8 @@ public class SettingsActivity extends AppCompatActivity {
     public void resetButtonPressed(View view) {
         DataHandler.getInstance().eraseNights();
         saveNights();
-        time1inMinutes = 0;
-        time2inMinutes = 0;
+        bedtimeInMinutes = 0;
+        logSleepTimeInMinutes = 0;
         cb_sleepTimeNotif = false;
         cb_logSleepNotif = false;
         saveNotificationTimes();
@@ -196,7 +194,7 @@ public class SettingsActivity extends AppCompatActivity {
     /**
      * Send activity notifications.
      *
-     * @param id The ID of the notification to create
+     * @param id Notifications ID value
      */
     private void sendNotification(int id) {
         Notification.Builder notificationBuilder = null;
@@ -218,28 +216,29 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     // calculate when to send notification
-    public void countNotificationTime() {
+    private void countNotificationTime() {
         Log.d("notski", "entering countNotificationTime");
         // convert to current time to minutes
         int timeCurrent = hoursNow * 60 + minutesNow;
 
         // check if notification should be pushed today or tomorrow:
         // 1440 = 24 hours in minutes, 60000 = 1 minute in milliseconds
+        int whenToNotify;
         if (cb_sleepTimeNotif) {
-            if (timeCurrent >= time1inMinutes) {
-                whenToNotify = (1440 - (timeCurrent - time1inMinutes)) * 60000;
+            if (timeCurrent >= bedtimeInMinutes) {
+                whenToNotify = (1440 - (timeCurrent - bedtimeInMinutes)) * 60000;
             } else {
-                whenToNotify = (time1inMinutes - timeCurrent) * 60000;
+                whenToNotify = (bedtimeInMinutes - timeCurrent) * 60000;
             }
             bedTimeinMillis = whenToNotify;
             Log.d("notski", "BD notif time calculated " + bedTimeinMillis);
         }
 
         if (cb_logSleepNotif) {
-            if (timeCurrent >= time2inMinutes) {
-                whenToNotify = (1440 - (timeCurrent - time2inMinutes)) * 60000;
+            if (timeCurrent >= logSleepTimeInMinutes) {
+                whenToNotify = (1440 - (timeCurrent - logSleepTimeInMinutes)) * 60000;
             } else {
-                whenToNotify = (time2inMinutes - timeCurrent) * 60000;
+                whenToNotify = (logSleepTimeInMinutes - timeCurrent) * 60000;
             }
             logSleepInMillis = whenToNotify;
             Log.d("notski", "LS notif time calculated");
@@ -247,7 +246,7 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     // method for pushing the notification
-    public void notificationAtCertainTime() {
+    private void notificationAtCertainTime() {
         Log.d("notski", "entering notificationAtCertainTime");
         countNotificationTime();
 
@@ -260,7 +259,6 @@ public class SettingsActivity extends AppCompatActivity {
                     Log.d("notski", "notification sent");
                 }
             };
-
         }
         if (cb_logSleepNotif) {
             taskLogSleep = new TimerTask() {
@@ -271,6 +269,8 @@ public class SettingsActivity extends AppCompatActivity {
                 }
             };
         }
+        // 24h in milliseconds
+        long day = 86400000;
         if (cb_sleepTimeNotif) {
             timer.scheduleAtFixedRate(taskBedtime, bedTimeinMillis, day);
         }

@@ -1,6 +1,5 @@
 package com.example.goodnight;
 
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,10 +24,10 @@ public class FeedbackActivity extends AppCompatActivity {
         double howManyHoursWithBestMood = 0;
         //boolean cb_exercise;
         double boolExercise = 0;
-        int exerciseAvg = 0;
+        int exerciseAvg;
         //boolean cb_napping;
         double boolNapping = 0;
-        int nappingAvg = 0;
+        int nappingAvg;
 
 
         // if there is data in arrayist to show

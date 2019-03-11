@@ -8,7 +8,7 @@
     android:fontFamily="sans-serif-condensed"
     android:paddingTop="25dp"
     android:paddingBottom="25dp"
-    android:text="sbgtdhbhd"
+    android:text="@string/sbgtdhbhd"
     android:textAlignment="center"
     android:textColor="@android:color/holo_orange_light"
     android:textSize="36sp">

@@ -293,7 +293,8 @@
         app:layout_constraintEnd_toStartOf="@+id/button_saveLog"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline18"
-        app:srcCompat="@drawable/infotry4" />
+        app:srcCompat="@drawable/infotry4"
+        android:contentDescription="TODO" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline12"

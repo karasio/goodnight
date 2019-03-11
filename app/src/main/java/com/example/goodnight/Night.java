@@ -1,13 +1,13 @@
 package com.example.goodnight;
 
 public class Night {
-    private double time_ToSleep;
-    private double time_wakeUp;
-    private double time_slept;
-    private int mood;
-    private boolean cb_special;
-    private boolean cb_napping;
-    private boolean cb_exercise;
+    private final double time_ToSleep;
+    private final double time_wakeUp;
+    private final double time_slept;
+    private final int mood;
+    private final boolean cb_special;
+    private final boolean cb_napping;
+    private final boolean cb_exercise;
 
     public Night(double time_ToSleep, double time_wakeUp, double time_slept,
                  int mood, boolean cb_special, boolean cb_napping, boolean cb_exercise) {
