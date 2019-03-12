@@ -29,6 +29,8 @@ public class DataHandler {
         return ourInstance;
     }
 
+
+    // set values from LogActivity to variables
     public void setSleepLogging(double time_ToSleep, double time_wakeUp, double time_slept, int mood, boolean cb_special, boolean cb_napping, boolean cb_exercise) {
         this.time_ToSleep = time_ToSleep;
         this.time_wakeUp = time_wakeUp;
@@ -51,6 +53,7 @@ public class DataHandler {
         Log.d("appi", "Arraylist: " + nights.toString());
     }
 
+    // set values from Settings to variables
     public void setSettings(
             boolean userBedTimeNotification, double time_bedTimeNotification,
             boolean userLogSleepNotification, double time_logSleepNotification) {
@@ -67,10 +70,12 @@ public class DataHandler {
         Log.d("kake", "logsleep " + time_logSleepNotification + " " + cb_logSleepNotif);
     }
 
+    // setter for ArrayList including data from logSleep
     public void setNights(ArrayList<Night> nights) {
         this.nights = nights;
     }
 
+    // getter for nights-ArrayList
     public ArrayList<Night> getNights() {
         return nights;
     }
@@ -82,11 +87,13 @@ public class DataHandler {
         Log.d("appi", "" + nights.toString());
     }
 
+    // getter for a spesific night
     public Night getNight(int index) {
         Night night = this.nights.get(index);
         return night;
     }
 
+    // delete ArrayList nights permanently
     public void eraseNights() {
         ArrayList<Night> emptyNights = new ArrayList<>();
         setNights(emptyNights);

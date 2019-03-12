@@ -22,8 +22,8 @@ public class SettingsActivity extends AppCompatActivity {
     private double bedTimeInHours, logSleepTimeinHours;
 
     //Notification variables
-    private final int notification_logSleep = 1100;
-    private final int notification_bedtime = 1101;
+    private final int NOTIFICATION_LOGSLEEP = 1100;
+    private final int NOTIFICATION_BEDTIME = 1101;
     private Notifications mNotificationHelper;
     private Timer timer;
     private TimerTask taskBedtime;
@@ -198,13 +198,13 @@ public class SettingsActivity extends AppCompatActivity {
      */
     private void sendNotification(int id) {
         Notification.Builder notificationBuilder = null;
-        if (id == notification_bedtime) {
+        if (id == NOTIFICATION_BEDTIME) {
             notificationBuilder =
                     mNotificationHelper.getNotificationBedtime(
                             getString(R.string.notification_channel_goodnight),
                             getString(R.string.notification_bedtime));
         }
-        if (id == notification_logSleep) {
+        if (id == NOTIFICATION_LOGSLEEP) {
             notificationBuilder =
                     mNotificationHelper.getNotificationLogSleep(
                             getString(R.string.notification_common),
@@ -255,7 +255,7 @@ public class SettingsActivity extends AppCompatActivity {
             taskBedtime = new TimerTask() {
                 @Override
                 public void run() {
-                    sendNotification(notification_bedtime);
+                    sendNotification(NOTIFICATION_BEDTIME);
                     Log.d("notski", "notification sent");
                 }
             };
@@ -264,7 +264,7 @@ public class SettingsActivity extends AppCompatActivity {
             taskLogSleep = new TimerTask() {
                 @Override
                 public void run() {
-                    sendNotification(notification_logSleep);
+                    sendNotification(NOTIFICATION_LOGSLEEP);
                     Log.d("notski", "notification sent");
                 }
             };

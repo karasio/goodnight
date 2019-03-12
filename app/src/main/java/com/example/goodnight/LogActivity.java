@@ -155,7 +155,7 @@ public class LogActivity extends AppCompatActivity {
         }
     }
 
-    // ARRAYLISTIN TALLENNUS MUISTIIN /*ÄLÄ POISTA T: KATRI*/
+    // Save ArrayList nights to SharedPreferences
     private void saveNights() {
         ArrayList<Night> nights = DataHandler.getInstance().getNights();
         SharedPreferences mPrefs = getSharedPreferences("sleepData", MODE_PRIVATE);
