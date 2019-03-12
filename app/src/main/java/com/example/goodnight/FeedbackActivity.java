@@ -18,19 +18,16 @@ public class FeedbackActivity extends AppCompatActivity {
         double howManyNights = DataHandler.getInstance().getNights().size();
         double moodAvg;
         int moodBest = 0;
-        //int moodBestIndex = 0;
         int moodBestSum = 0;
         int howManyNightsWithBestMood = 0;
         double howManyHoursWithBestMood = 0;
-        //boolean cb_exercise;
         double boolExercise = 0;
         int exerciseAvg;
-        //boolean cb_napping;
         double boolNapping = 0;
         int nappingAvg;
 
 
-        // if there is data in arrayist to show
+        // if there is data in arrayist to show, get it
         if (howManyNights > 0) {
             double howManyHours = 0;
             double moodSum = 0;
@@ -45,12 +42,13 @@ public class FeedbackActivity extends AppCompatActivity {
             String textHourAvg = String.format("%.2f", hourAvg);
             ((TextView) findViewById(R.id.text_hoursSlept)).setText(textHourAvg);
         }
-        // if no data found in arraylist
+        // if no data is found in arraylist, create empty list
         else {
             ((TextView) findViewById(R.id.text_hoursSlept)).setText("0.0");
             moodAvg = 3.0;
         }
 
+        // show mood picture according to mood average
         if (moodAvg >= 4.5) {
             imageView.setImageResource(R.drawable.happyhappyface);
         } else if (moodAvg >= 3.5 && moodAvg < 4.5) {
@@ -62,8 +60,7 @@ public class FeedbackActivity extends AppCompatActivity {
         } else
             imageView.setImageResource(R.drawable.sadsadface);
 
-        // SHOW SPECS FOR BEST NIGHT
-
+        // DISPLAY SPECS FOR BEST NIGHT
         // if arraylist is empty, show default values
         if (howManyNights <= 0) {
             ((TextView) findViewById(R.id.text_hoursSleptAvgBest)).setText("0.00");
@@ -81,7 +78,7 @@ public class FeedbackActivity extends AppCompatActivity {
             }
             // find out stats on night with best mood values and when cb_special is false
             for (int i = 0; i < howManyNights; i++) {
-                if (DataHandler.getInstance().getNight(i).getMood() == moodBest && !DataHandler.getInstance().getNight(i).isCB_SPECIAL()) {
+                if (DataHandler.getInstance().getNight(i).getMood() == moodBest && !DataHandler.getInstance().getNight(i).isCb_special()) {
                     moodBestSum += DataHandler.getInstance().getNight(i).getMood();
                     howManyNightsWithBestMood++;
                     howManyHoursWithBestMood += DataHandler.getInstance().getNight(i).getTime_slept();

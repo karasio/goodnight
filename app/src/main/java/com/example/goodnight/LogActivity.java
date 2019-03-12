@@ -40,7 +40,8 @@ public class LogActivity extends AppCompatActivity {
     // GETTING VALUES WHEN SAVE BUTTON IS PRESSED
     public void saveButtonPressed(View view) {
         TextView tv = (TextView)findViewById(R.id.warningTime);
-        // getting time values from time pickers
+
+        // getting time values from TimePickers
         int hourTimeSleep = picker1.getHour();
         int minuteTimeSleep= picker1.getMinute();
 
@@ -66,6 +67,7 @@ public class LogActivity extends AppCompatActivity {
         Log.d("logactivity", "cb_napping " + cb_napping);
         Log.d("logactivity", "cb exer " + cb_exercise);
 
+        // Set text for error situations
         if (view.getId() == R.id.button_saveLog) {
             if (time1 == time2 && mood == 0) {
                 tv.setText("Pick the time and the mood!");
@@ -81,6 +83,7 @@ public class LogActivity extends AppCompatActivity {
             }
         }
     }
+    // display more information about checkboxes on info button click
     public void onButtonShowPopupWindowClick(View view) {
 
         // inflate the layout of the popup window
