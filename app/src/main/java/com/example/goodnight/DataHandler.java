@@ -48,9 +48,6 @@ public class DataHandler {
         Log.d("appi", "cb special " + cb_special);
         Log.d("appi", "cb_napping " + cb_napping);
         Log.d("appi", "cb exer " + cb_exercise);
-
-
-        Log.d("appi", "Arraylist: " + nights.toString());
     }
 
     // set values from Settings to variables
@@ -66,8 +63,8 @@ public class DataHandler {
             this.cb_logSleepNotif = true;
             double time_logSleepNotification1 = time_logSleepNotification;
         }
-        Log.d("kake", "bedtime " + time_bedTimeNotification + " " + cb_bedTimeNotif);
-        Log.d("kake", "logsleep " + time_logSleepNotification + " " + cb_logSleepNotif);
+        Log.d("notski", "bedtime " + time_bedTimeNotification + " " + cb_bedTimeNotif);
+        Log.d("notski", "logsleep " + time_logSleepNotification + " " + cb_logSleepNotif);
     }
 
     // setter for ArrayList including data from logSleep

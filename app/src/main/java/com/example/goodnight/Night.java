@@ -11,7 +11,7 @@ public class Night {
 
     /**
      * Constructor for Class Night
-     * @param TIME_TOSLEEP
+     * @param time_toSleep
      * @param time_wakeUp
      * @param time_slept
      * @param mood
@@ -19,9 +19,9 @@ public class Night {
      * @param cb_napping
      * @param cb_exercise
      */
-    public Night(double TIME_TOSLEEP, double time_wakeUp, double time_slept,
+    public Night(double time_toSleep, double time_wakeUp, double time_slept,
                  int mood, boolean cb_special, boolean cb_napping, boolean cb_exercise) {
-        this.TIME_TOSLEEP = TIME_TOSLEEP;
+        this.TIME_TOSLEEP = time_toSleep;
         this.TIME_WAKEUP = time_wakeUp;
         this.TIME_SLEPT = time_slept;
         this.MOOD = mood;
@@ -38,7 +38,7 @@ public class Night {
         return MOOD;
     }
 
-    public boolean isCB_SPECIAL() {
+    public boolean isCb_special() {
         return CB_SPECIAL;
     }
 
