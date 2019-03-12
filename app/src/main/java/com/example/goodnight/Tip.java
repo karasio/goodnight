@@ -1,24 +1,24 @@
 package com.example.goodnight;
 
 public class Tip {
-    private final String name;
-    private final String description;
+    private final String NAME;
+    private final String DESCRIPTION;
 
     public Tip (String name, String description) {
-        this.name = name;
-        this.description = description;
+        this.NAME = name;
+        this.DESCRIPTION = description;
     }
 
     public String getName() {
-        return this.name;
+        return this.NAME;
     }
 
     public String getDescription() {
-        return this.description;
+        return this.DESCRIPTION;
     }
 
     @Override
     public String toString() {
-        return this.name;
+        return this.NAME;
     }
 }

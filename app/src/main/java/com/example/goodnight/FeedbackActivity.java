@@ -81,7 +81,7 @@ public class FeedbackActivity extends AppCompatActivity {
             }
             // find out stats on night with best mood values and when cb_special is false
             for (int i = 0; i < howManyNights; i++) {
-                if (DataHandler.getInstance().getNight(i).getMood() == moodBest && !DataHandler.getInstance().getNight(i).isCb_special()) {
+                if (DataHandler.getInstance().getNight(i).getMood() == moodBest && !DataHandler.getInstance().getNight(i).isCB_SPECIAL()) {
                     moodBestSum += DataHandler.getInstance().getNight(i).getMood();
                     howManyNightsWithBestMood++;
                     howManyHoursWithBestMood += DataHandler.getInstance().getNight(i).getTime_slept();
