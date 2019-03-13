@@ -8,7 +8,7 @@ import android.content.ContextWrapper;
 import android.graphics.Color;
 
 /** Class to manage notification channels, and create notifications. */
-class Notifications extends ContextWrapper {
+public class Notifications extends ContextWrapper {
     private NotificationManager mNotificationManager;
     public static final String GOODNIGHT_CHANNEL = "goodnight";
 

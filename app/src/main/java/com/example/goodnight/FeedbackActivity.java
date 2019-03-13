@@ -5,9 +5,21 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
+/**Class to display results from user inputted data
+ * @author Katri Raisio
+ * @author Kimmo Perälä
+ * @author Toni Ruoranen
+ * @version 1.0
+ */
 
 public class FeedbackActivity extends AppCompatActivity {
-
+    /**
+     * *Method to set the layout when activity is first created and complete calculations for best sleep from how many hours per night and if naps and exercising had part in it.
+     * The calculations gets their starting values from DataHandlers nights arraylist and once calculations are done and results are valid they are displayed in the easy to comprehend UI.
+     * The data put on the screen are: Average sleeping time, Average mood and Best mood rates according to hours slept, naps and exercising on best mood rate.
+     * @param savedInstanceState if the activity is being re-initialized after previously being shut down then this Bundle contains the data it most recently supplied in onSaveInstanceState. Otherwise it is null.
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +42,7 @@ public class FeedbackActivity extends AppCompatActivity {
         int nappingAvg;
 
 
-        // if there is data in arrayist to show
+        // if there is data in arraylist to show
         if (howManyNights > 0) {
             double howManyHours = 0;
             double moodSum = 0;

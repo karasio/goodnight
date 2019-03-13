@@ -17,6 +17,12 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import com.google.gson.Gson;
 import java.util.ArrayList;
+/**Class for the user to input data of sleep amount and activities that have to be considered when calculating best sleep amount
+ * @author Katri Raisio
+ * @author Kimmo Perälä
+ * @author Toni Ruoranen
+ * @version 1.0
+ */
 
 public class LogActivity extends AppCompatActivity {
     private TimePicker picker1;
@@ -25,6 +31,11 @@ public class LogActivity extends AppCompatActivity {
     private boolean cb_special = false;
     private boolean cb_napping = false;
     private boolean cb_exercise = false;
+
+    /**Method to set the layout when activity is first created and assigning variables for our timePickers that we are able to manipulate for our purposes.
+     *
+     * @param savedInstanceState if the activity is being re-initialized after previously being shut down then this Bundle contains the data it most recently supplied in onSaveInstanceState. Otherwise it is null.
+     */
 
 
     @Override
@@ -38,6 +49,12 @@ public class LogActivity extends AppCompatActivity {
     }
 
     // GETTING VALUES WHEN SAVE BUTTON IS PRESSED
+    /**Method to transfer data from this class to other classes by saving to singleton instance and and shared preferences.
+     *This method is also responsible for converting timepickers to usable variables and sleeptime logic using those variables.
+     * This method also requires the time to sleep and time woken up be different and mood be picked before it registers the data it receives and switches activity to MainActivity
+     * @param view  View button_saveLog where this method is in use
+     */
+
     public void saveButtonPressed(View view) {
         TextView tv = (TextView)findViewById(R.id.warningTime);
         // getting time values from time pickers
@@ -81,6 +98,11 @@ public class LogActivity extends AppCompatActivity {
             }
         }
     }
+    /**
+     *Method for a button to pop up a popup window with its specified layout attributes. This method contains also the ability to touch anywhere on screen to dismiss popup window.
+     * @param view View that uses this method
+     */
+
     public void onButtonShowPopupWindowClick(View view) {
 
         // inflate the layout of the popup window
@@ -108,6 +130,11 @@ public class LogActivity extends AppCompatActivity {
         });
     }
     // mood button listener
+    /**   On click method for all radiobuttons in mood radiogroup. The method assigns an integer value for variable mood based on which button was clicked.
+     *
+     * @param view View that gets checked from radiogroup
+     */
+
     public void moodButtonPressed(View view) {
         RadioGroup rGroup = findViewById(R.id.mood_radiogroup);
         RadioButton checkedRadioButton = rGroup.findViewById(rGroup.getCheckedRadioButtonId());
@@ -125,6 +152,12 @@ public class LogActivity extends AppCompatActivity {
     }
 
     //checkbox listener
+    /**
+     * Onclick method for checkboxes to get boolean values from checkboxes to variables. The data is then given to saveButtonPressed where it is given to singleton to distribute to other classes and also to shared preferences because it is updated at the end of that method.
+     * @param view View that gets clicked from three checkboxes
+     * @see LogActivity#saveButtonPressed(View)
+     */
+
     public void onCheckboxClicked(View view) {
         // Is the view now checked?
         boolean checked = ((CheckBox) view).isChecked();
@@ -156,6 +189,10 @@ public class LogActivity extends AppCompatActivity {
     }
 
     // Save ArrayList nights to SharedPreferences
+    /** Method for downloading nights arraylist from DataHandler instance into shared preferences by creating an arraylist with night objects and same name by copying it from DataHandler. Is executed at the end of savedButtonPressed method
+     * @see LogActivity#saveButtonPressed(View)
+     */
+
     private void saveNights() {
         ArrayList<Night> nights = DataHandler.getInstance().getNights();
         SharedPreferences mPrefs = getSharedPreferences("sleepData", MODE_PRIVATE);
@@ -169,3 +206,4 @@ public class LogActivity extends AppCompatActivity {
 
 }
 //Sourcecode for TimePicker: https://www.tutlane.com/tutorial/android/android-timepicker-with-examples
+//Sourcecode for PopupWindow https://stackoverflow.com/questions/5944987/how-to-create-a-popup-window-popupwindow-in-android
