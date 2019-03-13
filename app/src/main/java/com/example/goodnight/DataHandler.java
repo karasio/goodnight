@@ -4,7 +4,7 @@ import android.util.Log;
 import android.view.View;
 
 import java.util.ArrayList;
-/**Class to distribute data from LogActivity to FeedbackActivity.
+/**Class to distribute data from <code>LogActivity</code> to <code>FeedbackActivity</code>.
  * @author Toni Ruoranen
  * @author Katri Raisio
  * @author Kimmo Perälä
@@ -33,12 +33,12 @@ public class DataHandler {
     //constructor for singleton class
 
     /**
-     * Our singleton instance constructor. It is private so other classes cant access it and create new instances.
+     *  Singleton instance constructor. It is private so other classes can't access it and create new instances.
      */
     private DataHandler() {
     }
     /**
-     *Method that acts as a key to access data in DataHandler for other classes.
+     *Method that acts as a key to access data in <code>DataHandler</code> for other classes.
      * @return       private static final DataHandler ourInstance
      */
 
@@ -49,7 +49,7 @@ public class DataHandler {
 
     // set values from LogActivity to variables
     /**
-     *Auxiliary method for storeData that bring variables to Datahandler class from LogActivity before adding to nights arraylist.
+     * Auxiliary method for <code>storeData</code> that bring variables to <code>Datahandler </code>class from <code>LogActivity</code> before adding to <code>nights</code> arraylist.
      * The time spent sleeping is calculated from time_ToSleep and time_wakeUp with the following logic. If time_ToSleep is greater than time_wakeUp time_slept is (24.0-time_ToSleep)+time_wakeUp. If time_wakeUp is greater then math goes as such. time_wakeUp- time_ToSleep.
      *
      * @param time_ToSleep                  double value inputted at <code>LogActivity</code> for going to sleep, input is picked from sliders that contain only valid values
@@ -87,7 +87,7 @@ public class DataHandler {
 
     // set values from Settings to variables
     /**
-     *This method is used in SettingsActivity class to save data to singleton
+     *This method is used in <code>SettingsActivity</code> class to save data to singleton
      * @param userBedTimeNotification           boolean value from class <code>SettingsActivity</code> method <code>onCheckBoxClicked</code> that is in checkbox, checks if user wants bedtime notification
      * @param time_bedTimeNotification          gets double value from class <code>SettingsActivity</code> and method <code>onCreate</code>the time for the bedtime notification, picked from slider that contains only valid values.
      * @param userLogSleepNotification          boolean value from class <code>SettingsActivity</code> method <code>onCheckBoxClicked</code> that is in checkbox, checks if user wants logging notification
@@ -114,8 +114,8 @@ public class DataHandler {
 
     // setter for ArrayList including data from logSleep
     /**
-     * This is an auxiliary method for eraseNights and loadNights by copying night object containing arraylist to our nights arraylist and if the copied arraylist is empty, it resets private arraylist nights  in practise.
-     * @param nights        arraylist containing night objects
+     * This is an auxiliary method for <code>eraseNights</code> and <code>loadNights</code> by copying <code>Night</code> object containing arraylist to our <code>nights</code> arraylist and if the copied arraylist is empty, it resets <code>private arraylist nights</code>  in practise.
+     * @param nights        arraylist containing <code>Night</code> objects
      * @see MainActivity#loadNights()
      * @see DataHandler#eraseNights()
      */
@@ -126,8 +126,8 @@ public class DataHandler {
 
     // getter for nights-ArrayList
     /**
-     * Specific method to call the entire arraylist nights from ourInstance. Useful for example to combine with other methods to get arraylist size.
-     * @return          the complete arraylist nights
+     * Specific method to call the entire arraylist <code>nights</code> from ourInstance. Useful for example to combine with other methods to get arraylist size.
+     * @return          the complete arraylist <code>nights</code>
      */
 
     public ArrayList<Night> getNights() {
@@ -137,7 +137,7 @@ public class DataHandler {
     // add values from LogSleep activity to ArrayList
 
     /**
-     * Makes a new entry into the nights arraylist as a new night object in LogActivity. Variables get values from setSleepLogging.
+     * Makes a new entry into the <code>nights</code> arraylist as a new <code>Night</code> object in <code>LogActivity</code>. Variables get values from <code>setSleepLogging</code> method.
      * @see LogActivity#saveButtonPressed(View)
      * @see DataHandler#setSleepLogging(double, double, double, int, boolean, boolean, boolean)
      * @see Night#Night(double, double, double, int, boolean, boolean, boolean)
@@ -149,11 +149,11 @@ public class DataHandler {
         Log.d("appi", "" + nights.toString());
     }
 
-    // getter for a spesific night
+    // getter for a specific night
     /**
-    * Pulls up a specific night to get access to other data from it by using the arraylist index number by granting access to night object methods.
-    * @param index      Integer to get a specific night from nights arraylist.
-    * @return           A specific night object which is on the nights arraylist spot that integer index specifies.
+    * Pulls up a specific night to get access to other data from it by using the arraylist index number by granting access to Night object methods.
+    * @param index      Integer to get a specific <code>Night</code> from <code>nights</code> arraylist.
+    * @return           A specific <code>Night</code> object which is on the <code>nights</code> arraylist spot that integer index specifies.
      *
      */
 
@@ -164,7 +164,7 @@ public class DataHandler {
 
     // delete ArrayList nights permanently
     /**
-     *  Resets the arraylist nights by creating a new empty arraylist and replacing the old arraylist with that. Used in SettingsActivity.
+     *  Resets the arraylist <code>nights </code>by creating a new empty arraylist and replacing the old arraylist with that. Used in <code>SettingsActivity</code>.
      * @see DataHandler#setNights(ArrayList)
      * @see SettingsActivity#resetButtonPressed(View)
      */

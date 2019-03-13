@@ -50,8 +50,8 @@ public class LogActivity extends AppCompatActivity {
 
     // GETTING VALUES WHEN SAVE BUTTON IS PRESSED
     /**Method to transfer data from this class to other classes by saving to singleton instance and and shared preferences.
-     *This method is also responsible for converting timepickers to usable variables and sleeptime logic using those variables.
-     * This method also requires the time to sleep and time woken up be different and mood be picked before it registers the data it receives and switches activity to MainActivity
+     * This method is also responsible for converting timepickers to usable variables and sleeptime logic using those variables.
+     * This method also requires the time to sleep and time woken up be different and mood be picked before it registers the data it receives and switches activity to <code>MainActivity</code>
      * @param view  View button_saveLog where this method is in use
      */
 
@@ -102,10 +102,10 @@ public class LogActivity extends AppCompatActivity {
     // display more information about checkboxes on info button click
     /**
      *Method for a button to pop up a popup window with its specified layout attributes. This method contains also the ability to touch anywhere on screen to dismiss popup window.
-     * @param view View that uses this method
+     * @param view Button view that uses this method
      */
 
-    // display more information about checkboxes on info button click
+
     public void onButtonShowPopupWindowClick(View view) {
 
         // inflate the layout of the popup window
@@ -156,7 +156,7 @@ public class LogActivity extends AppCompatActivity {
 
     //checkbox listener
     /**
-     * Onclick method for checkboxes to get boolean values from checkboxes to variables. The data is then given to saveButtonPressed where it is given to singleton to distribute to other classes and also to shared preferences because it is updated at the end of that method.
+     * Onclick method for checkboxes to get boolean values from checkboxes to variables. The data is then given to <code>saveButtonPressed</code> method where it is given to singleton to distribute to other classes and also to shared preferences because it is updated at the end of that method.
      * @param view View that gets clicked from three checkboxes
      * @see LogActivity#saveButtonPressed(View)
      */
@@ -192,7 +192,7 @@ public class LogActivity extends AppCompatActivity {
     }
 
     // Save ArrayList nights to SharedPreferences
-    /** Method for downloading nights arraylist from DataHandler instance into shared preferences by creating an arraylist with night objects and same name by copying it from DataHandler. Is executed at the end of savedButtonPressed method
+    /** Method for downloading nights arraylist from <code>DataHandler</code> instance into shared preferences by creating an arraylist with <code>Night</code> objects and same name by copying it from <code>DataHandler</code>. Is executed at the end of <code>savedButtonPressed</code> method
      * @see LogActivity#saveButtonPressed(View)
      */
 

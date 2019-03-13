@@ -6,10 +6,16 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+/**
+ * Class to display conclusions from collected data and performing those calculations.
+ * @author Kimmo Perälä
+ * @author Katri Raisio
+ * @version 1.0
+ */
 public class FeedbackActivity extends AppCompatActivity {
     /**
      * *Method to set the layout when activity is first created and complete calculations for best sleep from how many hours per night and if naps and exercising had part in it.
-     * The calculations gets their starting values from DataHandlers nights arraylist and once calculations are done and results are valid they are displayed in the easy to comprehend UI.
+     * The calculations gets their starting values from <code>DataHandlers nights</code> arraylist and once calculations are done and results are valid they are displayed in the easy to comprehend UI.
      * The data put on the screen are: Average sleeping time, Average mood and Best mood rates according to hours slept, naps and exercising on best mood rate.
      * @param savedInstanceState if the activity is being re-initialized after previously being shut down then this Bundle contains the data it most recently supplied in onSaveInstanceState. Otherwise it is null.
      *
@@ -36,8 +42,8 @@ public class FeedbackActivity extends AppCompatActivity {
         int nappingAvg;
 
 
-        // if there is data in arrayist to show, get it
-        // if there is data in arraylist to show
+
+
         // if there is data in arrayist to show, get it
         if (howManyNights > 0) {
             double howManyHours = 0;

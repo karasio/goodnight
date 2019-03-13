@@ -13,10 +13,10 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-/**Class to enable or disable notifications and pick the time for said notifications and to reset gathered data of nights slept arraylist in DataHandler arraylist nights
+/**Class to enable or disable notifications and pick the time for said notifications and to reset gathered data of nights slept arraylist in <code>DataHandler</code> arraylist <code>nights</code>
  * @author Katri Raisio
- * @author Kimmo Perälä
- * @author Toni Ruoranen
+ * @version 1.0
+ *
  */
 public class SettingsActivity extends AppCompatActivity {
     // variables for activity_settings.xml and calculations
@@ -43,7 +43,7 @@ public class SettingsActivity extends AppCompatActivity {
     /**
      * Method to set the layout when activity is first created and binding timepicker widgets to variables that are easier to manipulate.
      * Pulls old notification times and if they were enabled from shared preferences into other variables.
-     * Creates new Timer for countNotificationTime method.
+     * Creates new Timer for <code>countNotificationTime</code> method.
      * @param savedInstanceState if the activity is being re-initialized after previously being shut down then this Bundle contains the data it most recently supplied in onSaveInstanceState. Otherwise it is null.
      * @see SettingsActivity#loadNotificationTimes()
      */
@@ -71,8 +71,8 @@ public class SettingsActivity extends AppCompatActivity {
 
     /**
      * Method to save notification times by saving time picker variables if checkboxes returns true and convert values to hours and minutes to be more usable.
-     * Method utilises other methods to save variables into SharedPreferences, DataHandler and telling Android when notifications are due.
-     * Method switches back to MainActivity once saving is done.
+     * Method utilises other methods to save variables into SharedPreferences, <code>DataHandler</code> and telling Android when notifications are due.
+     * Method switches back to <code>MainActivity</code> once saving is done.
      * @param view View that uses this method
      * @see SettingsActivity#saveNotificationTimes()
      * @see DataHandler#setSettings(boolean, double, boolean, double)
@@ -116,7 +116,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     /**
      * Onclick method for checkboxes to get boolean values from checkboxes to variables. Checkbox enables notifications when true is returned and disabed if returns false.
-     * The data is then given to saveButtonPressed where it is given to singleton and also to shared preferences because it is updated at the end of that method.
+     * The data is then given to <code>saveButtonPressed</code> where it is given to singleton and also to shared preferences because it is updated at the end of that method.
      * @param view Checkbox views that use this method and value is the one that was clicked
      * @see SettingsActivity#saveButtonPressed(View)
      */
@@ -177,7 +177,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     /**
      * Method to save notification time & boolean values to SharedPreferences.
-     * Utilized in saveButtonPressed method.
+     * Utilized in <code>saveButtonPressed</code> method.
      * @see SettingsActivity#saveButtonPressed(View)
      */
     private void saveNotificationTimes() {
@@ -215,7 +215,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     /**
      * Erases Arraylist & resets values of instance variables in class and saves reset values to SharedPreferences.
-     * Method switches back to MainActivity once resetting is done
+     * Method switches back to <code>MainActivity</code> once resetting is done
      * @param view button view that utilizes this method
      */
     public void resetButtonPressed(View view) {
@@ -234,7 +234,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     // NOTIFICATIONS
 
-    /**Auxiliary method for notificationAtCertainTime.
+    /**Auxiliary method for <code>notificationAtCertainTime</code>.
      * Send activity notifications. Utilizes Notifications class to send notification to android notification bar.
      * Defines also what message is in the notification
      *
@@ -305,7 +305,7 @@ public class SettingsActivity extends AppCompatActivity {
      * Method that ties other methods together and determines if notification is to be sent.
      * Method first checks boolean values to determine which notification to send or if both are to be sent.
      * Then this method utilizes other method to push notification to Android and tells Android also at what time notification is to pop up.
-     * Utilises methods countNotificationTime to calculate when notification is due and sendNotification to push the job to Android and tells the notification message.
+     * Utilises methods <code>countNotificationTime</code> to calculate when notification is due and <code>sendNotification</code> to push the job to Android and tells the notification message.
      * @see SettingsActivity#countNotificationTime()
      * @see SettingsActivity#sendNotification(int)
      * @see SettingsActivity#saveButtonPressed(View)

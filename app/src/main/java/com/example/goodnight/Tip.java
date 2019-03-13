@@ -2,10 +2,10 @@ package com.example.goodnight;
 
 import android.os.Bundle;
 
-/**Class of Tip objects for singleton class TipsList to create and store in its private arraylist <code>private ArrayList<Tip> tips</code> and inherit night object methods and values.
- * @author Katri Raisio
+/**Class of <code>Tip</code> objects for singleton class <code>TipsList</code> to create and store in its private arraylist <code>private ArrayList<Tip> tips</code> and inherit night object methods and values.
+ *
  * @author Kimmo Perälä
- * @author Toni Ruoranen
+ *
  * @version 1.0
  */
 
@@ -13,7 +13,7 @@ public class Tip {
     private final String NAME;
     private final String DESCRIPTION;
     /**
-     * Constructor for tips to be inserted TipsList arraylist singleton.
+     * Constructor for <code>Tip</code> object to be inserted <code>TipsList</code> arraylist singleton.
      * @param name              String name to put in the ListView as titles for descriptions
      * @param description       String of detailed sleep related info
      * @see TipsList#TipsList()
@@ -24,8 +24,8 @@ public class Tip {
         this.DESCRIPTION = description;
     }
     /**
-     * Method to get Tip name in TipDetailsActivity for setText.
-     * @return string name of the tip.
+     * Method to get <code>Tip</code> <CODE>NAME</CODE> in <code>TipDetailsActivity</code> for setText.
+     * @return string NAME of the <code>Tip</code>.
      * @see TipDetailsActivity#onCreate(Bundle)
      */
 
@@ -33,8 +33,8 @@ public class Tip {
         return this.NAME;
     }
     /**
-     * Method to get Tip description in TipDetailsActivity for setText.
-     * @return string description of the tip.
+     * Method to get  <code>Tip description</code> in <code>TipDetailsActivity</code> for setText.
+     * @return string DESCRIPTION of the <code>tip</code>.
      * @see TipDetailsActivity#onCreate(Bundle)
      */
 
@@ -42,8 +42,8 @@ public class Tip {
         return this.DESCRIPTION;
     }
     /**
-     *Another way to get tip objects name.
-     * @return string name of the tip.
+     *Another way to get <code>Tip</code> objects name.
+     * @return string NAME of the <code>Tip</code>.
      */
 
     @Override

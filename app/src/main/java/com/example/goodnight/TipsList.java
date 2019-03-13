@@ -5,9 +5,9 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 /**Class to distribute data to TipsActivity and TipDetailsActivity
- * @author Katri Raisio
+ *
  * @author Kimmo Perälä
- * @author Toni Ruoranen
+ *
  * @version 1.0
  */
 
@@ -36,8 +36,8 @@ public class TipsList {
         tips.add(new Tip("Increase the quality","Go to bed only when you're tired. If you can't fall asleep in 15 minutes, get up for a while. Get up at the same time every morning. Don't take naps."));
     }
     /**
-     * Method to get entire arraylist which is 3 objects and all their data. Used in TipsActivity for listview.
-     * @return                 arraylist tips which holds tip objects
+     * Method to get entire arraylist which is 3 objects and all their data. Used in <code>TipsActivity</code> for listview.
+     * @return                 arraylist <code>tips</code> which holds <code>Tip</code> objects
      * @see TipsActivity#onCreate(Bundle)
      */
 
@@ -45,9 +45,9 @@ public class TipsList {
         return tips;
     }
     /**
-     *Method for getting a tip object specified by variable index from tips arraylist index.
-     * @param index             integer variable that gets its value in TipDetailsActivity from intent that gets its value from onItemClickListener in TipsActivity.
-     * @return                  a single tip object from tips arraylist which position in the arraylist index is the same integer as the parameter integer index.
+     *Method for getting a <code>Tip</code> object specified by variable index from tips arraylist index.
+     * @param index             integer variable that gets its value in <code>TipDetailsActivity</code> from intent that gets its value from onItemClickListener in <code>TipsActivity</code>.
+     * @return                  a single <code>Tip</code> object from <code>tips</code> arraylist which position in the arraylist index is the same integer as the parameter integer index.
      * @see TipDetailsActivity#onCreate(Bundle)
      * @see Tip#Tip(String, String)
      */

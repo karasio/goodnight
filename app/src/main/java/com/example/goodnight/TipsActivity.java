@@ -8,18 +8,18 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-/**Class for Tips from Tipslist presented by their names as titles in listView to use only one activity to show one of the three tips in new activity on click.
- * @author Katri Raisio
+/**Class for <code>Tips</code> from <code>Tipslist</code> presented by their <code>NAME</code> as titles in listView to use only one activity to show one of the three tips in new activity on click.
+ *
  * @author Kimmo Perälä
- * @author Toni Ruoranen
+ *
  * @version 1.0
  */
 
 public class TipsActivity extends AppCompatActivity {
     public static final String EXTRA="tipIndex";
     /**
-     *Method to set the arraylist tips from TipsList into ListView View.
-     * Method sets onClick listener into ListViews items inside this method that starts anohter activity with the clicked tips name and description.
+     * Method to set the arraylist <code>tips</code> from <code>TipsList</code> into ListView View.
+     * Method sets onClick listener into ListViews items inside this method that starts anohter activity with the clicked tips NAME and <CODE>DESCRIPTION</CODE>.
      * @param savedInstanceState if the activity is being re-initialized after previously being shut down then this Bundle contains the data it most recently supplied in onSaveInstanceState. Otherwise it is null.
      * @see TipDetailsActivity#onCreate(Bundle)
      * @see TipsList#getTips()

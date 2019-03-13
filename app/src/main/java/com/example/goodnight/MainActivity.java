@@ -10,18 +10,18 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-/**Class that serves as a main menu to other activities. As it is the first activity to start when app is booted is where logged nights from shared preferences are uploaded back to DataHandler.
+/**Class that serves as a main menu to other activities. As it is the first activity to start when app is booted is where logged nights from shared preferences are uploaded back to <code>DataHandler</code>.
+ * @author Toni Ruoranen
  * @author Katri Raisio
  * @author Kimmo Perälä
- * @author Toni Ruoranen
  * @version 1.0
- * @since
+ *
  */
 
 public class MainActivity extends AppCompatActivity {
     private Intent intent;
     /**
-     *Method to set the layout when activity is first created and loading shared preferences to DataHandlers nights arraylist by executing loadNights().
+     *Method to set the layout when activity is first created and loading shared preferences to DataHandlers nights arraylist by executing <code>loadNights()</code>.
      * @param savedInstanceState if the activity is being re-initialized after previously being shut down then this Bundle contains the data it most recently supplied in onSaveInstanceState. Otherwise it is null.
      * @see DataHandler#setNights(ArrayList)
      */
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d("appi", "" + DataHandler.getInstance().getNights());
     }
     /**
-     * In the case that the app is paused nights arraylist is saved to shared preferences by executing saveNights().
+     * In the case that the app is paused <code>nights</code> arraylist is saved to shared preferences by executing <code>saveNights()</code>.
      * @see MainActivity#saveNights()
      */
 
@@ -46,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
 
     // open activities according to which button was pressed
     /**
-     * on click method for all MainActivity buttons. The method opens a new activity on click and depending on the button which activity is opened.
-     * @param view
+     * On click method for all <code>MainActivity</code> buttons. The method opens a new activity on click and depending on the button which activity is opened.
+     * @param view Button view that is pressed from buttons on screen
      */
 
     public void buttonPressed(View view) {
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Saving data to memory
     /**
-     * Method for saving nights arraylist from DataHandler instance into shared preferences by creating an arraylist with night objects and same name by copying it from DataHandler. Is used when app is paused.
+     * Method for saving <code>nights</code> arraylist from <code>DataHandler</code> instance into shared preferences by creating an arraylist with <code>Night</code> objects and same name by copying it from <code>DataHandler</code>. Is used when app is paused.
      * @see DataHandler#getNights()
      * @see MainActivity#onPause()
      */
