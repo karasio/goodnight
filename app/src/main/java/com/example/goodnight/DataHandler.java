@@ -6,7 +6,7 @@ import android.view.View;
 import java.util.ArrayList;
 /**Class to distribute data from <code>LogActivity</code> to <code>FeedbackActivity</code>.
  * @author Toni Ruoranen
- * @author Katri Raisio
+ * @author Katri Rasio
  * @author Kimmo Perälä
  * @version 1.0
 

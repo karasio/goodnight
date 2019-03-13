@@ -3,7 +3,7 @@ package com.example.goodnight;
 import android.os.Bundle;
 
 /**Class of night objects for <code>DataHandler</code> to create and store in its private arraylist <code>private ArrayList<Night> nights</code> and inherit night object methods and values for comparison purposes in <code>FeedbackActivity</code> class.
- * @author Katri Raisio
+ * @author Katri Rasio
  * @author Kimmo Perälä
  * @author Toni Ruoranen
  * @version 1.0

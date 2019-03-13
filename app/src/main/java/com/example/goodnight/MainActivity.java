@@ -12,7 +12,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 /**Class that serves as a main menu to other activities. As it is the first activity to start when app is booted is where logged nights from shared preferences are uploaded back to <code>DataHandler</code>.
  * @author Toni Ruoranen
- * @author Katri Raisio
+ * @author Katri Rasio
  * @author Kimmo Perälä
  * @version 1.0
  *

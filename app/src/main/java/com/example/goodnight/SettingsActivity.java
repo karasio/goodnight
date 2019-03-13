@@ -14,7 +14,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**Class to enable or disable notifications and pick the time for said notifications and to reset gathered data of nights slept arraylist in <code>DataHandler</code> arraylist <code>nights</code>
- * @author Katri Raisio
+ * @author Katri Rasio
  * @version 1.0
  *
  */

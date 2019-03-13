@@ -18,7 +18,7 @@ import android.widget.TimePicker;
 import com.google.gson.Gson;
 import java.util.ArrayList;
 /**Class for the user to input data of sleep amount and activities that have to be considered when calculating best sleep amount
- * @author Katri Raisio
+ * @author Katri Rasio
  * @author Kimmo Perälä
  * @author Toni Ruoranen
  * @version 1.0

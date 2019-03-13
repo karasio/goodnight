@@ -9,7 +9,7 @@ import android.widget.TextView;
 /**
  * Class to display conclusions from collected data and performing those calculations.
  * @author Kimmo Perälä
- * @author Katri Raisio
+ * @author Katri Rasio
  * @version 1.0
  */
 public class FeedbackActivity extends AppCompatActivity {
