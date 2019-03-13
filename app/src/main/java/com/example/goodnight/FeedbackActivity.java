@@ -5,12 +5,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
-/**Class to display results from user inputted data
- * @author Katri Raisio
- * @author Kimmo Perälä
- * @author Toni Ruoranen
- * @version 1.0
- */
 
 public class FeedbackActivity extends AppCompatActivity {
     /**
@@ -42,6 +36,7 @@ public class FeedbackActivity extends AppCompatActivity {
         int nappingAvg;
 
 
+        // if there is data in arrayist to show, get it
         // if there is data in arraylist to show
         // if there is data in arrayist to show, get it
         if (howManyNights > 0) {

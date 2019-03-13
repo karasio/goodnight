@@ -84,7 +84,6 @@ public class LogActivity extends AppCompatActivity {
         Log.d("logactivity", "cb_napping " + cb_napping);
         Log.d("logactivity", "cb exer " + cb_exercise);
 
-        // Set text for error situations
         if (view.getId() == R.id.button_saveLog) {
             if (time1 == time2 && mood == 0) {
                 tv.setText("Pick the time and the mood!");
@@ -106,7 +105,7 @@ public class LogActivity extends AppCompatActivity {
      * @param view View that uses this method
      */
 
-
+    // display more information about checkboxes on info button click
     public void onButtonShowPopupWindowClick(View view) {
 
         // inflate the layout of the popup window
