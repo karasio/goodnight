@@ -57,7 +57,8 @@ public class LogActivity extends AppCompatActivity {
 
     public void saveButtonPressed(View view) {
         TextView tv = (TextView)findViewById(R.id.warningTime);
-        // getting time values from time pickers
+
+        // getting time values from TimePickers
         int hourTimeSleep = picker1.getHour();
         int minuteTimeSleep= picker1.getMinute();
 
@@ -83,6 +84,7 @@ public class LogActivity extends AppCompatActivity {
         Log.d("logactivity", "cb_napping " + cb_napping);
         Log.d("logactivity", "cb exer " + cb_exercise);
 
+        // Set text for error situations
         if (view.getId() == R.id.button_saveLog) {
             if (time1 == time2 && mood == 0) {
                 tv.setText("Pick the time and the mood!");
@@ -98,10 +100,12 @@ public class LogActivity extends AppCompatActivity {
             }
         }
     }
+    // display more information about checkboxes on info button click
     /**
      *Method for a button to pop up a popup window with its specified layout attributes. This method contains also the ability to touch anywhere on screen to dismiss popup window.
      * @param view View that uses this method
      */
+
 
     public void onButtonShowPopupWindowClick(View view) {
 

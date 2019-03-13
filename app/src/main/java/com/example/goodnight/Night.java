@@ -25,7 +25,7 @@ public class Night {
      * If time_ToSleep is greater than time_wakeUp time_slept is (24.0-time_ToSleep)+time_wakeUp.
      * If time_wakeUp is greater then math goes as such. time_wakeUp- time_ToSleep.
      *
-     *  @param TIME_TOSLEEP                  double value inputted at <code>LogActivity</code> for going to sleep, input is picked from sliders that contain only valid values
+     *  @param time_toSleep                 double value inputted at <code>LogActivity</code> for going to sleep, input is picked from sliders that contain only valid values
      *  @param time_wakeUp                   double value user logged for waking up after that night at LogActivity, input is picked from sliders that contain only valid values
      *  @param time_slept                    Double value calculated at LogActivity in saveButtonPressed method, only invalid value is 0.00 and it is stopped from being inserted at the method saveButtonPressed. The time that user slept during the night.
      *  @param mood                          Integer value chosen in <code>LogActivity#moodButtonPressed</code> from mood radiogroup. Values range from 1-5.Value specifies how well the user feels after sleeping
@@ -36,9 +36,10 @@ public class Night {
      * @see DataHandler#nights
      */
 
-    public Night(double TIME_TOSLEEP, double time_wakeUp, double time_slept,
+    public Night(double time_toSleep, double time_wakeUp, double time_slept,
+
                  int mood, boolean cb_special, boolean cb_napping, boolean cb_exercise) {
-        this.TIME_TOSLEEP = TIME_TOSLEEP;
+        this.TIME_TOSLEEP = time_toSleep;
         this.TIME_WAKEUP = time_wakeUp;
         this.TIME_SLEPT = time_slept;
         this.MOOD = mood;
@@ -70,7 +71,7 @@ public class Night {
      * @see FeedbackActivity#onCreate(Bundle)
      */
 
-    public boolean isCB_SPECIAL() {
+    public boolean isCb_special() {
         return CB_SPECIAL;
     }
     /**

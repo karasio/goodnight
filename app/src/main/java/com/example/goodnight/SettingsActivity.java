@@ -33,7 +33,6 @@ public class SettingsActivity extends AppCompatActivity {
     private Timer timer;
     private TimerTask taskBedtime;
     private TimerTask taskLogSleep;
-    //private long day = 10000;                // debug toistoaika
     private long bedTimeinMillis;
     private long logSleepInMillis;
     private int bedtimeInMinutes = 0;
@@ -65,14 +64,6 @@ public class SettingsActivity extends AppCompatActivity {
         loadNotificationTimes();
         Log.d("notski", "bedtime in minutes " + bedtimeInMinutes + " logsleepinMinutes " + logSleepTimeInMinutes);
 
-//        if (bedtimeInMinutes > 0) {
-//            Log.d("notski", "BT " + cb_sleepTimeNotif);
-//            notificationAtCertainTime();
-//        }
-//        if (logSleepTimeInMinutes > 0) {
-//            Log.d("notski", "LS " + cb_logSleepNotif);
-//            notificationAtCertainTime();
-//        }
         // create necessary objects for notifications
         mNotificationHelper = new Notifications(this);
         timer = new Timer();
@@ -285,6 +276,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         // check if notification should be pushed today or tomorrow:
         // 1440 = 24 hours in minutes, 60000 = 1 minute in milliseconds
+
         int whenToNotify;
         if (cb_sleepTimeNotif) {
             if (timeCurrent >= bedtimeInMinutes) {

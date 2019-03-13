@@ -101,4 +101,5 @@ public class Notifications extends ContextWrapper {
     }
 }
 
+// Class done with Google Codelabs tutorial https://codelabs.developers.google.com/codelabs/notification-channels-java/index.html?index=..%2F..index#0
 // modified from https://github.com/googlecodelabs/notification-channels-java
